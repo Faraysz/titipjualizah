@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="heroCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff7f4"/>
+      <stop offset="100%" stop-color="#ffebe6"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#e11d48" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#heroCardBg)" rx="32"/>
+  
+  <!-- Subtle outline frame -->
+  <rect x="24" y="24" width="752" height="552" rx="24" fill="none" stroke="#fecdd6" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <!-- Centered Illustration Group -->
+  <g transform="translate(260, 140)" filter="url(#cardShadow)">
+    <!-- Base card -->
+    <rect x="0" y="0" width="280" height="240" rx="20" fill="#ffffff" stroke="#fecdd6" stroke-width="2"/>
+    
+    <!-- Bag silhouette with clean lines (stroke 1.5 style) -->
+    <path d="M 100 80 C 100 45, 180 45, 180 80" fill="none" stroke="#be123c" stroke-width="4" stroke-linecap="round"/>
+    <rect x="60" y="80" width="160" height="110" rx="16" fill="#fff0f3" stroke="#be123c" stroke-width="3"/>
+    <path d="M 60 80 Q 140 130 220 80" fill="none" stroke="#be123c" stroke-width="3"/>
+    <circle cx="140" cy="115" r="5" fill="#e11d48"/>
+
+    <!-- Status badge -->
+    <rect x="75" y="200" width="130" height="26" rx="13" fill="#e11d48"/>
+    <text x="140" y="217" font-family="'Poppins', sans-serif" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="1">TERJUAL</text>
+  </g>
+
+  <!-- Watermark text -->
+  <text x="400" y="440" font-family="'Playfair Display', Georgia, serif" font-size="22" font-weight="700" fill="#292524" text-anchor="middle">Titip Jual Izah • Showcase</text>
+  <text x="400" y="475" font-family="'Poppins', sans-serif" font-size="14" font-weight="500" fill="#78716c" text-anchor="middle">[GANTI: Foto Barang / Display Showcase Kak Izah]</text>
+  <text x="400" y="505" font-family="'Poppins', sans-serif" font-size="12" fill="#a8a29e" text-anchor="middle">Rekomendasi ukuran: 800 x 600 px (Rasio 4:3)</text>
+</svg>
+

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#fff7f4" rx="24"/>
+  <rect x="16" y="16" width="368" height="368" rx="20" fill="none" stroke="#fecdd6" stroke-width="2" stroke-dasharray="6 6"/>
+  <circle cx="200" cy="180" r="90" fill="#ffffff" stroke="#fecdd6" stroke-width="2"/>
+  <path d="M 165 190 C 165 160, 190 170, 215 190 L 235 195 L 235 200 L 165 200 Z" fill="#fff0f3" stroke="#be123c" stroke-width="2.5"/>
+  <line x1="165" y1="190" x2="162" y2="210" stroke="#be123c" stroke-width="3"/>
+  <text x="200" y="315" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="#292524" text-anchor="middle">Sepatu &amp; Sandal</text>
+  <text x="200" y="340" font-family="'Poppins', sans-serif" font-size="11" font-weight="600" fill="#e11d48" text-anchor="middle">[GANTI: Foto Kategori Sepatu]</text>
+</svg>
+

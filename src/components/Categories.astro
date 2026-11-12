@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import { siteConfig } from '../config/site';
+import Icon from './Icon.astro';
+
+// Import gambar kategori dari src/assets/kategori/
+import katFashion from '../assets/kategori/kategori-fashion.svg';
+import katTas from '../assets/kategori/kategori-tas.svg';
+import katSepatu from '../assets/kategori/kategori-sepatu.svg';
+import katAksesoris from '../assets/kategori/kategori-aksesoris.svg';
+import katSkincare from '../assets/kategori/kategori-skincare.svg';
+
+const categoryImages: Record<string, ImageMetadata> = {
+  fashion: katFashion,
+  bags: katTas,
+  shoes: katSepatu,
+  accessories: katAksesoris,
+  beauty: katSkincare,
+};
+---
+
+<section id="kategori" class="py-16 sm:py-24 bg-white border-b border-blush-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    
+    <!-- Section Heading -->
+    <div class="text-center max-w-2xl mx-auto mb-14 fade-up-element">
+      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
+        Koleksi Pilihan
+      </span>
+      <h2 class="font-heading font-bold text-2xl sm:text-4xl text-warmtext-dark tracking-tight mb-4">
+        Kategori Barang yang Diterima
+      </h2>
+      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
+        Kak Izah menerima kurasi barang wanita dari brand lokal terpercaya hingga luxury &amp; international brands.
+      </p>
+    </div>
+
+    <!-- Category Grid with Image Showcase -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
+      {siteConfig.categories.map((cat) => {
+        const img = categoryImages[cat.id];
+        return (
+          <div class="fade-up-element bg-cream-50 rounded-3xl p-5 border border-blush-100 flex flex-col justify-between hover:border-blush-300 transition-colors">
+            <div>
+              <div class="aspect-square rounded-2xl overflow-hidden bg-white mb-4 border border-blush-100/80">
+                {img && (
+                  <Image
+                    src={img}
+                    alt={cat.alt}
+                    class="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+
+              <div class="flex items-center gap-2 mb-1.5">
+                <Icon name={cat.iconName} class="w-4 h-4 text-rosebrand-600 shrink-0" />
+                <h3 class="font-heading font-bold text-base text-warmtext-dark">
+                  {cat.name}
+                </h3>
+              </div>
+
+              <p class="text-xs text-warmtext-muted leading-relaxed mb-3">
+                {cat.description}
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-blush-100 text-[11px] text-warmtext-soft">
+              <span class="font-medium text-warmtext-muted block mb-0.5">Contoh Brand:</span>
+              <span class="line-clamp-2">{cat.exampleBrands}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Clear Guideline Box: Diterima vs Tidak Diterima -->
+    <div class="fade-up-element bg-cream-50 rounded-3xl p-6 sm:p-8 border border-blush-200">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Criteria Accepted -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-3 text-emerald-700 font-semibold text-sm">
+            <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
+              <Icon name="check" class="w-3.5 h-3.5" />
+            </div>
+            <span>Syarat Barang yang Diterima</span>
+          </div>
+          <ul class="text-xs sm:text-sm text-warmtext-muted space-y-2 pl-8 list-disc">
+            <li>100% Produk Original / Asli (kami tidak menerima barang tiruan).</li>
+            <li>Kondisi mulus, bersih, layak pakai, dan terawat (Like New / Preloved bagus).</li>
+            <li>Kelengkapan asli bila ada (box, dustbag, kartu nota) bernilai jual lebih tinggi.</li>
+            <li>Khusus skincare dan kosmetik WAJIB baru dan masih tersegel (sealed).</li>
+          </ul>
+        </div>
+
+        <!-- Criteria Rejected -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-3 text-rosebrand-700 font-semibold text-sm">
+            <div class="w-6 h-6 rounded-full bg-blush-100 flex items-center justify-center text-rosebrand-700 shrink-0">
+              <Icon name="x" class="w-3.5 h-3.5" />
+            </div>
+            <span>Barang yang TIDAK Diterima</span>
+          </div>
+          <ul class="text-xs sm:text-sm text-warmtext-muted space-y-2 pl-8 list-disc">
+            <li>Barang tiruan, KW, replika grade super / 1:1.</li>
+            <li>Pakaian dengan noda permanen, sobek parah, atau bau tidak sedap.</li>
+            <li>Kosmetik atau skincare yang sudah pernah dibuka atau bekas pakai.</li>
+            <li>Barang yang sudah kedaluwarsa atau hilang nomor batch/BPOM-nya.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+

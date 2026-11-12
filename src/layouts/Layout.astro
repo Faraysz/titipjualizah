@@ -1,0 +1,144 @@
+---
+import { siteConfig } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = `${siteConfig.brandName} - Jasa Titip Jual Barang Cewek Amanah`,
+  description = siteConfig.description,
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="titip jual izah, titip jual cewek, preloved cewek, jastip barang wanita, titip jual baju, titip jual tas branded, titip jual skincare" />
+    <meta name="author" content={siteConfig.ownerName} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, siteConfig.siteUrl).toString()} />
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, siteConfig.siteUrl).toString()} />
+
+    <!-- Google Fonts: Poppins (Body) & Playfair Display (Heading) with font-display: swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style is:global>
+      /* Global Reset & Base Styling */
+      :root {
+        --color-bg: #fffbf9;
+        --color-text: #292524;
+      }
+
+      body {
+        font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+        color: var(--color-text);
+        background-color: var(--color-bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, .font-heading {
+        font-family: 'Playfair Display', Georgia, serif;
+      }
+
+      /* Respect prefers-reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        ::before,
+        ::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* Subtle Light Fade-in Animation */
+      .fade-up-element {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .fade-up-element.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fff7f4;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #fda4b4;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #e11d48;
+      }
+    </style>
+  </head>
+  <body class="selection:bg-blush-200 selection:text-rosebrand-800">
+    <slot />
+
+    <!-- Lightweight IntersectionObserver for fade-up animation (Zero heavy libs) -->
+    <script>
+      const observerCallback: IntersectionObserverCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1,
+      });
+
+      document.querySelectorAll('.fade-up-element').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
+

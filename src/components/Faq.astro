@@ -1,0 +1,105 @@
+---
+import { siteConfig, getWhatsAppUrl } from '../config/site';
+import Icon from './Icon.astro';
+
+const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat titip jual');
+---
+
+<section id="faq" class="py-16 sm:py-24 bg-cream-50 border-b border-blush-100">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    
+    <!-- Section Heading -->
+    <div class="text-center mb-14 fade-up-element">
+      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
+        Tanya Jawab
+      </span>
+      <h2 class="font-heading font-bold text-2xl sm:text-4xl text-warmtext-dark tracking-tight mb-4">
+        Pertanyaan yang Sering Diajukan
+      </h2>
+      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
+        Penjelasan lengkap seputar keamanan barang, pembayaran, evaluasi barang belum laku, hingga ketentuan titip jual.
+      </p>
+    </div>
+
+    <!-- Modern Accordion Cards (No native details tag) -->
+    <div class="space-y-4" id="faq-accordion-group">
+      {siteConfig.faqs.map((faq, idx) => (
+        <div class="faq-item fade-up-element bg-white rounded-2xl border border-blush-100 shadow-soft overflow-hidden transition-all duration-200">
+          <button
+            type="button"
+            class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-heading font-bold text-sm sm:text-base text-warmtext-dark cursor-pointer select-none focus:outline-none"
+            aria-expanded={idx === 0 ? "true" : "false"}
+          >
+            <span>{faq.question}</span>
+            <span class="faq-chevron w-8 h-8 rounded-full bg-blush-50 text-rosebrand-600 flex items-center justify-center shrink-0 transition-transform duration-300">
+              <Icon name="chevron-down" class="w-4 h-4" />
+            </span>
+          </button>
+          
+          <div class={`faq-content px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-warmtext-muted leading-relaxed border-t border-blush-50 transition-all duration-300 ${idx === 0 ? 'block' : 'hidden'}`}>
+            {faq.answer}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Extra WA Contact Prompt -->
+    <div class="mt-12 text-center fade-up-element">
+      <p class="text-xs sm:text-sm text-warmtext-muted mb-3">
+        Punya pertanyaan lain yang belum terjawab di sini?
+      </p>
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 font-semibold text-rosebrand-700 hover:text-rosebrand-800 text-xs sm:text-sm"
+      >
+        <span>Tanyakan langsung ke Kak Izah via WhatsApp</span>
+        <Icon name="arrow-right" class="w-4 h-4 text-rosebrand-600" />
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Modern Accordion Logic
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach((item) => {
+    const toggle = item.querySelector('.faq-toggle');
+    const content = item.querySelector('.faq-content');
+    const chevron = item.querySelector('.faq-chevron');
+
+    toggle?.addEventListener('click', () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+      // Tutup semua item lain
+      faqItems.forEach((other) => {
+        if (other !== item) {
+          const otherToggle = other.querySelector('.faq-toggle');
+          const otherContent = other.querySelector('.faq-content');
+          const otherChevron = other.querySelector('.faq-chevron');
+
+          otherToggle?.setAttribute('aria-expanded', 'false');
+          otherContent?.classList.add('hidden');
+          otherChevron?.classList.remove('rotate-180');
+          other.classList.remove('border-blush-300');
+        }
+      });
+
+      // Toggle item saat ini
+      if (isExpanded) {
+        toggle.setAttribute('aria-expanded', 'false');
+        content?.classList.add('hidden');
+        chevron?.classList.remove('rotate-180');
+        item.classList.remove('border-blush-300');
+      } else {
+        toggle.setAttribute('aria-expanded', 'true');
+        content?.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+        item.classList.add('border-blush-300');
+      }
+    });
+  });
+</script>

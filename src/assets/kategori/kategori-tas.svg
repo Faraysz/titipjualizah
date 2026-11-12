@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#fff7f4" rx="24"/>
+  <rect x="16" y="16" width="368" height="368" rx="20" fill="none" stroke="#fecdd6" stroke-width="2" stroke-dasharray="6 6"/>
+  <circle cx="200" cy="180" r="90" fill="#ffffff" stroke="#fecdd6" stroke-width="2"/>
+  <path d="M 180 150 C 180 130, 220 130, 220 150" fill="none" stroke="#be123c" stroke-width="2.5"/>
+  <rect x="165" y="150" width="70" height="60" rx="8" fill="#fff0f3" stroke="#be123c" stroke-width="2.5"/>
+  <text x="200" y="315" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="#292524" text-anchor="middle">Tas &amp; Dompet</text>
+  <text x="200" y="340" font-family="'Poppins', sans-serif" font-size="11" font-weight="600" fill="#e11d48" text-anchor="middle">[GANTI: Foto Kategori Tas]</text>
+</svg>
+

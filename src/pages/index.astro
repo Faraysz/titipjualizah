@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Benefits from '../components/Benefits.astro';
+import Categories from '../components/Categories.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import CtaFooter from '../components/CtaFooter.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+import { siteConfig } from '../config/site';
+---
+
+<Layout
+  title={`${siteConfig.brandName} - ${siteConfig.tagline}`}
+  description={siteConfig.description}
+>
+  <!-- 1. Navbar -->
+  <Navbar />
+
+  <!-- Main Content Wrapper -->
+  <main>
+    <!-- 2. Hero Section -->
+    <Hero />
+
+    <!-- 3. Cara Kerja (4 Langkah) -->
+    <HowItWorks />
+
+    <!-- 4. Keuntungan -->
+    <Benefits />
+
+    <!-- 5. Kategori Barang -->
+    <Categories />
+
+    <!-- 6. Biaya / Skema Komisi -->
+    <Pricing />
+
+    <!-- 7. Testimoni & Contoh Barang Terjual -->
+    <Testimonials />
+
+    <!-- 8. FAQ (Accordion) -->
+    <Faq />
+  </main>
+
+  <!-- 9. CTA Penutup & Footer -->
+  <CtaFooter />
+
+  <!-- 10. Tombol WhatsApp Mengambang -->
+  <FloatingWhatsApp />
+</Layout>
+
