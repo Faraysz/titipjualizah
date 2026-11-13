@@ -29,7 +29,7 @@ const benefits = [
   },
   {
     title: 'Pasar Terfokus Sesama Cewek',
-    desc: 'Katalog dipromosikan langsung ke jaringan dan audiens wanita yang memang aktif mencari outfit, tas branded, dan aksesoris preloved original.',
+    desc: 'Katalog dipromosikan langsung ke jaringan dan audiens wanita yang memang aktif mencari baju, tas, sepatu, hijab, dan preloved original.',
     icon: 'user-check' as const,
   },
 ];
@@ -38,28 +38,28 @@ const benefits = [
 <section id="keuntungan" class="py-16 sm:py-24 bg-cream-50 border-b border-blush-100">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Header -->
+    <!-- Section Header (Cormorant Garamond) -->
     <div class="max-w-2xl mb-14 text-center sm:text-left fade-up-element">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
+      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
         Kenapa Titip Jual?
       </span>
-      <h2 class="font-heading font-bold text-2xl sm:text-4xl text-warmtext-dark tracking-tight mb-4">
+      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
         Keuntungan Titip Barang ke Kak Izah
       </h2>
-      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
+      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
         Jual barang preloved sendiri seringkali melelahkan dan menyita waktu. Titipkan ke Izah, kamu tinggal terima bersih hasilnya.
       </p>
     </div>
 
-    <!-- Varied Layout: 2-Column Clean Cards with Clear Hierarchy -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Cards Grid (DM Sans for body details) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-body">
       {benefits.map((item) => (
         <div class="fade-up-element bg-white rounded-3xl p-7 border border-blush-100/90 shadow-soft hover:shadow-soft-hover transition-all">
           <div class="w-11 h-11 rounded-2xl bg-blush-50 border border-blush-200/60 flex items-center justify-center text-rosebrand-600 mb-5">
             <Icon name={item.icon} class="w-5 h-5 text-rosebrand-600" />
           </div>
 
-          <h3 class="font-heading font-bold text-lg text-warmtext-dark mb-2.5">
+          <h3 class="font-heading font-bold text-2xl text-warmtext-dark mb-2.5">
             {item.title}
           </h3>
           <p class="text-xs sm:text-sm text-warmtext-muted leading-relaxed">
@@ -71,4 +71,3 @@ const benefits = [
 
   </div>
 </section>
-

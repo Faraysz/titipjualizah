@@ -1,79 +1,130 @@
 ---
 import { Image } from 'astro:assets';
-import { siteConfig } from '../config/site';
+import { siteConfig, getCategoryWhatsAppUrl, getWhatsAppUrl } from '../config/site';
 import Icon from './Icon.astro';
 
-// Import gambar kategori dari src/assets/kategori/
-import katFashion from '../assets/kategori/kategori-fashion.svg';
-import katTas from '../assets/kategori/kategori-tas.svg';
-import katSepatu from '../assets/kategori/kategori-sepatu.svg';
-import katAksesoris from '../assets/kategori/kategori-aksesoris.svg';
-import katSkincare from '../assets/kategori/kategori-skincare.svg';
+// Import 7 foto kategori resmi
+import fotoBaju from '../assets/kategori/baju.jpg';
+import fotoCelana from '../assets/kategori/celana.jpg';
+import fotoTas from '../assets/kategori/tas.jpg';
+import fotoJam from '../assets/kategori/jam-tangan.jpg';
+import fotoSepatu from '../assets/kategori/sepatu-sandal.jpg';
+import fotoHijab from '../assets/kategori/hijab.jpg';
+import fotoSkincare from '../assets/kategori/skincare-makeup.jpg';
 
 const categoryImages: Record<string, ImageMetadata> = {
-  fashion: katFashion,
-  bags: katTas,
-  shoes: katSepatu,
-  accessories: katAksesoris,
-  beauty: katSkincare,
+  'baju': fotoBaju,
+  'celana': fotoCelana,
+  'tas': fotoTas,
+  'jam-tangan': fotoJam,
+  'sepatu-sandal': fotoSepatu,
+  'hijab': fotoHijab,
+  'skincare-makeup': fotoSkincare,
 };
+
+const waOtherUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya titip jual barang lainnya yang belum ada di daftar');
 ---
 
 <section id="kategori" class="py-16 sm:py-24 bg-white border-b border-blush-100">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Heading -->
+    <!-- Section Heading (Allu Inspired: Clean & Trustworthy) -->
     <div class="text-center max-w-2xl mx-auto mb-14 fade-up-element">
       <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
         Koleksi Pilihan
       </span>
-      <h2 class="font-heading font-bold text-2xl sm:text-4xl text-warmtext-dark tracking-tight mb-4">
+      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
         Kategori Barang yang Diterima
       </h2>
       <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
-        Kak Izah menerima kurasi barang wanita dari brand lokal terpercaya hingga luxury &amp; international brands.
+        Pilih kategori barang yang ingin kamu titipkan. Klik kartu untuk langsung konsultasi dan kirim foto barang via WhatsApp.
       </p>
     </div>
 
-    <!-- Category Grid with Image Showcase -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
-      {siteConfig.categories.map((cat) => {
-        const img = categoryImages[cat.id];
+    <!-- Category Photo Grid (2 Kolom Mobile, 4 Kolom Desktop - Total 8 Kartu Rapi Simetris) -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
+      {siteConfig.categories.map((cat, idx) => {
+        const img = categoryImages[cat.slug];
+        const waCatUrl = getCategoryWhatsAppUrl(cat.nama);
         return (
-          <div class="fade-up-element bg-cream-50 rounded-3xl p-5 border border-blush-100 flex flex-col justify-between hover:border-blush-300 transition-colors">
+          <a
+            href={waCatUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="fade-up-element group bg-cream-50 rounded-3xl overflow-hidden border border-blush-100/90 hover:border-blush-300 hover:shadow-soft-hover transition-all duration-300 flex flex-col justify-between"
+          >
+            <!-- Uniform Photo Card -->
             <div>
-              <div class="aspect-square rounded-2xl overflow-hidden bg-white mb-4 border border-blush-100/80">
+              <div class="aspect-square w-full overflow-hidden bg-white relative">
                 {img && (
                   <Image
                     src={img}
                     alt={cat.alt}
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 )}
+                
+                <!-- Discrete Category Number (Allu Style) -->
+                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-warmtext-dark font-medium text-[11px] px-2.5 py-0.5 rounded-full border border-blush-100 shadow-sm">
+                  0{idx + 1}
+                </span>
+
+                <!-- Subtle WA Action Arrow on Hover -->
+                <span class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-rosebrand-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                  <Icon name="arrow-right" class="w-4 h-4 text-white" />
+                </span>
               </div>
 
-              <div class="flex items-center gap-2 mb-1.5">
-                <Icon name={cat.iconName} class="w-4 h-4 text-rosebrand-600 shrink-0" />
-                <h3 class="font-heading font-bold text-base text-warmtext-dark">
-                  {cat.name}
+              <!-- Category Details (DM Sans) -->
+              <div class="p-4 sm:p-5">
+                <h3 class="font-heading font-bold text-xl sm:text-2xl text-warmtext-dark mb-1 group-hover:text-rosebrand-600 transition-colors">
+                  {cat.nama}
                 </h3>
+                <p class="text-xs text-warmtext-muted line-clamp-2 leading-relaxed">
+                  {cat.sub}
+                </p>
               </div>
-
-              <p class="text-xs text-warmtext-muted leading-relaxed mb-3">
-                {cat.description}
-              </p>
             </div>
 
-            <div class="pt-3 border-t border-blush-100 text-[11px] text-warmtext-soft">
-              <span class="font-medium text-warmtext-muted block mb-0.5">Contoh Brand:</span>
-              <span class="line-clamp-2">{cat.exampleBrands}</span>
+            <!-- Card Action Footer -->
+            <div class="px-4 py-3 bg-white/80 border-t border-blush-100/70 flex items-center justify-between text-[11px] font-semibold text-rosebrand-600">
+              <span>Titip {cat.nama}</span>
+              <Icon name="message-circle" class="w-3.5 h-3.5" />
             </div>
-          </div>
+          </a>
         );
       })}
+
+      <!-- 8th Card: Penutup Simetris "Lainnya? Tanya dulu lewat WhatsApp" -->
+      <a
+        href={waOtherUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fade-up-element group bg-gradient-to-br from-cream-100 to-blush-50 rounded-3xl p-6 border-2 border-dashed border-blush-200 hover:border-rosebrand-500 hover:shadow-soft-hover transition-all duration-300 flex flex-col justify-between text-center"
+      >
+        <div class="my-auto py-4">
+          <div class="w-12 h-12 rounded-2xl bg-white border border-blush-200 text-rosebrand-600 mx-auto flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
+            <Icon name="sparkles" class="w-6 h-6 text-rosebrand-600" />
+          </div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-rosebrand-600 block mb-1">
+            Kategori Lainnya?
+          </span>
+          <h3 class="font-heading font-bold text-2xl text-warmtext-dark mb-2">
+            Tanya Dulu ke Kak Izah
+          </h3>
+          <p class="text-xs text-warmtext-muted max-w-[200px] mx-auto leading-relaxed">
+            Punya barang preloved wanita di luar 7 kategori ini? Konsultasikan dulu lewat WhatsApp.
+          </p>
+        </div>
+
+        <div class="w-full py-2.5 rounded-full bg-rosebrand-600 group-hover:bg-rosebrand-700 text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-btn transition-colors">
+          <Icon name="message-circle" class="w-4 h-4 text-white" />
+          <span>Chat via WhatsApp</span>
+        </div>
+      </a>
     </div>
 
-    <!-- Clear Guideline Box: Diterima vs Tidak Diterima -->
+    <!-- Guideline Box: Diterima vs Tidak Diterima (Allu-inspired Comparison) -->
     <div class="fade-up-element bg-cream-50 rounded-3xl p-6 sm:p-8 border border-blush-200">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
@@ -89,7 +140,7 @@ const categoryImages: Record<string, ImageMetadata> = {
             <li>100% Produk Original / Asli (kami tidak menerima barang tiruan).</li>
             <li>Kondisi mulus, bersih, layak pakai, dan terawat (Like New / Preloved bagus).</li>
             <li>Kelengkapan asli bila ada (box, dustbag, kartu nota) bernilai jual lebih tinggi.</li>
-            <li>Khusus skincare dan kosmetik WAJIB baru dan masih tersegel (sealed).</li>
+            <li>Khusus skincare dan makeup: <strong class="text-rosebrand-700">Wajib baru &amp; bersegel resmi [GANTI syarat kondisi]</strong>.</li>
           </ul>
         </div>
 
@@ -114,4 +165,3 @@ const categoryImages: Record<string, ImageMetadata> = {
 
   </div>
 </section>
-

@@ -8,21 +8,21 @@ const waCommissionUrl = getWhatsAppUrl(siteConfig.commissionWaMessage);
 <section id="komisi" class="py-16 sm:py-24 bg-cream-50 border-b border-blush-100">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Heading -->
+    <!-- Section Heading (Cormorant Garamond) -->
     <div class="text-center max-w-2xl mx-auto mb-14 fade-up-element">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
+      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
         Skema Terbuka
       </span>
-      <h2 class="font-heading font-bold text-2xl sm:text-4xl text-warmtext-dark tracking-tight mb-4">
+      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
         Biaya &amp; Skema Komisi Titip Jual
       </h2>
-      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
+      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
         Sistem bagi hasil yang adil. Tidak ada biaya sewa etalase di awal. Komisi hanya dipotong ketika barang berhasil terjual!
       </p>
     </div>
 
-    <!-- Pricing Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto mb-10">
+    <!-- Pricing Cards Grid (DM Sans for numbers & details) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto mb-10 font-body">
       {siteConfig.commissionTiers.map((tier, idx) => {
         const isMiddle = idx === 1;
         return (
@@ -34,7 +34,7 @@ const waCommissionUrl = getWhatsAppUrl(siteConfig.commissionWaMessage);
             }`}
           >
             {isMiddle && (
-              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rosebrand-600 text-white text-[11px] font-semibold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm">
+              <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rosebrand-600 text-white text-[11px] font-semibold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm font-body">
                 Paling Sering Dititip
               </span>
             )}
@@ -43,17 +43,17 @@ const waCommissionUrl = getWhatsAppUrl(siteConfig.commissionWaMessage);
               <span class="text-xs font-semibold text-rosebrand-600 uppercase tracking-wider block mb-1">
                 Kategori
               </span>
-              <h3 class="font-heading font-bold text-xl text-warmtext-dark mb-2">
+              <h3 class="font-heading font-bold text-2xl text-warmtext-dark mb-2">
                 {tier.category}
               </h3>
               <p class="text-xs text-warmtext-muted mb-6">
                 {tier.description}
               </p>
 
-              <!-- Rate Display Placeholder -->
+              <!-- Rate Display Placeholder (DM Sans 600) -->
               <div class="p-4 rounded-2xl bg-blush-50 border border-dashed border-blush-300 text-center mb-6">
                 <span class="text-[11px] text-warmtext-muted block mb-0.5">Besaran Komisi:</span>
-                <span class="font-heading font-extrabold text-2xl text-rosebrand-600 block">
+                <span class="font-body font-bold text-2xl text-rosebrand-600 block">
                   {tier.rate}
                 </span>
                 <span class="text-[10px] text-warmtext-soft block mt-0.5">dari harga laku deal</span>
@@ -88,10 +88,9 @@ const waCommissionUrl = getWhatsAppUrl(siteConfig.commissionWaMessage);
     </div>
 
     <!-- Assurance banner -->
-    <div class="max-w-2xl mx-auto p-4 rounded-2xl bg-white border border-blush-200 text-center text-xs sm:text-sm text-warmtext-muted fade-up-element">
+    <div class="max-w-2xl mx-auto p-4 rounded-2xl bg-white border border-blush-200 text-center text-xs sm:text-sm text-warmtext-muted fade-up-element font-body">
       <span class="font-semibold text-warmtext-dark">Prinsip Kami:</span> Jika barang titipan tidak laku terjual, kamu sama sekali <strong class="text-rosebrand-600">tidak dikenakan komisi apa pun</strong>.
     </div>
 
   </div>
 </section>
-

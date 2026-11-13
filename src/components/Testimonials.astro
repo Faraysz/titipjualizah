@@ -33,21 +33,21 @@ const testiImages: Record<string, ImageMetadata> = {
 <section id="terjual" class="py-16 sm:py-24 bg-white border-b border-blush-100">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Heading: Galeri Terjual -->
+    <!-- Section Heading: Galeri Terjual (Cormorant Garamond) -->
     <div class="text-center max-w-2xl mx-auto mb-14 fade-up-element">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
+      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
         Galeri Transaksi
       </span>
-      <h2 class="font-heading font-bold text-2xl sm:text-4xl text-warmtext-dark tracking-tight mb-4">
+      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
         Contoh Barang yang Pernah Terjual
       </h2>
-      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
+      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
         Beberapa barang titipan cewek-cewek yang berhasil laku cepat dengan harga pasaran terbaik.
       </p>
     </div>
 
-    <!-- Gallery Grid with Uniform 1:1 Aspect Ratio (Clean Card Design, No Modal Bloat) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-24">
+    <!-- Gallery Grid with Uniform 1:1 Aspect Ratio (DM Sans font-body) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-24 font-body">
       {siteConfig.soldGallery.map((item) => {
         const img = barangImages[item.id];
         return (
@@ -63,7 +63,7 @@ const testiImages: Record<string, ImageMetadata> = {
                   />
                 )}
                 
-                <span class="absolute top-4 left-4 bg-rosebrand-600 text-white font-bold text-[11px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+                <span class="absolute top-4 left-4 bg-rosebrand-600 text-white font-bold text-[11px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm font-body">
                   TERJUAL
                 </span>
               </div>
@@ -73,7 +73,7 @@ const testiImages: Record<string, ImageMetadata> = {
                 <span class="text-xs font-semibold text-rosebrand-600 block mb-1">
                   {item.category}
                 </span>
-                <h3 class="font-heading font-bold text-base text-warmtext-dark mb-1">
+                <h3 class="font-heading font-bold text-2xl text-warmtext-dark mb-1">
                   {item.title}
                 </h3>
                 <p class="text-xs text-warmtext-muted mb-2">
@@ -88,7 +88,7 @@ const testiImages: Record<string, ImageMetadata> = {
             <div class="px-6 py-4 bg-white border-t border-blush-100/80 flex items-center justify-between text-xs">
               <div>
                 <span class="text-[10px] text-warmtext-soft block">Harga Laku:</span>
-                <span class="font-heading font-bold text-rosebrand-600 text-sm">{item.priceSold}</span>
+                <span class="font-body font-bold text-rosebrand-600 text-sm">{item.priceSold}</span>
               </div>
               <span class="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
                 {item.durationSold}
@@ -99,21 +99,21 @@ const testiImages: Record<string, ImageMetadata> = {
       })}
     </div>
 
-    <!-- Section Heading: Testimoni Chat WhatsApp Asli -->
+    <!-- Section Heading: Testimoni Chat WhatsApp Asli (Cormorant Garamond) -->
     <div id="testimoni" class="text-center max-w-2xl mx-auto mb-14 fade-up-element pt-4">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
+      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
         Testimoni Nyata
       </span>
-      <h2 class="font-heading font-bold text-2xl sm:text-4xl text-warmtext-dark tracking-tight mb-4">
+      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
         Cerita Mereka yang Pernah Titip Jual
       </h2>
-      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
+      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
         Tangkapan layar obrolan asli dari teman-teman penitip setelah barangnya berhasil terjual di Titip Jual Izah.
       </p>
     </div>
 
     <!-- Testimonial Asli Grid (2 Kolom Lebar & Proporsional Sesuai Screenshot Asli) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto font-body">
       {siteConfig.testimonials.map((testi) => {
         const img = testiImages[testi.id];
         return (
@@ -133,7 +133,7 @@ const testiImages: Record<string, ImageMetadata> = {
 
             <!-- Customer Caption -->
             <div class="mt-4 text-center max-w-sm">
-              <h4 class="font-heading font-bold text-warmtext-dark text-base">
+              <h4 class="font-heading font-bold text-warmtext-dark text-xl sm:text-2xl">
                 {testi.senderName}
               </h4>
               <p class="text-xs text-rosebrand-600 font-medium mt-0.5">

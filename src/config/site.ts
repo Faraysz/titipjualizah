@@ -1,9 +1,18 @@
+
 /**
  * KONFIGURASI TERPUSAT - TITIP JUAL IZAH
  * 
- * Semua data penting (nomor WhatsApp, persentase komisi, link medsos,
- * kategori, FAQ, dan daftar gambar) dikelola dari satu file ini.
+ * Semua data penting (nomor WhatsApp, 7 kategori barang, FAQ,
+ * komisi, dan daftar gambar) dikelola dari satu file ini.
  */
+
+export interface CategoryItem {
+  slug: string;
+  nama: string;
+  foto: string; // File di src/assets/kategori/
+  alt: string;
+  sub: string;
+}
 
 export interface GalleryItem {
   id: string;
@@ -34,17 +43,6 @@ export interface FaqItem {
   answer: string;
 }
 
-export interface CategoryItem {
-  id: string;
-  name: string;
-  description: string;
-  exampleBrands: string;
-  iconName: 'shirt' | 'shopping-bag' | 'footprints' | 'watch' | 'sparkles';
-  imagePath: string; // File di src/assets/kategori/
-  alt: string;
-  isPlaceholder: boolean;
-}
-
 export interface CommissionTier {
   category: string;
   rate: string; // [KOMISI: ...%]
@@ -59,7 +57,7 @@ export const siteConfig = {
   brandName: 'Titip Jual Izah',
   ownerName: 'Kak Izah',
   tagline: 'Titip jual barang cewekmu, biar Izah yang urus sampai laku',
-  description: 'Layanan titip jual khusus barang wanita terpercaya oleh Kak Izah. Fashion, tas, sepatu, aksesoris, dan beauty. Praktis tanpa ribet foto ulang, balas ratusan chat, atau COD.',
+  description: 'Layanan titip jual barang cewek terpercaya oleh Kak Izah: baju, tas, sepatu, hijab, sampai skincare. Praktis tanpa ribet foto ulang, balas ratusan chat, atau COD.',
   siteUrl: 'https://titipjualayyu.vercel.app',
 
   // ==========================================
@@ -77,13 +75,69 @@ export const siteConfig = {
   instagramHandle: '@titipjual_izah',
 
   // ==========================================
-  // 4. SKEMA BIAYA & KOMISI
+  // 4. DAFTAR 7 KATEGORI BARANG YANG DITERIMA
+  // Urutan persis: Baju, Celana, Tas, Jam tangan, Sepatu & sandal, Hijab, Skincare & makeup
+  // ==========================================
+  categories: [
+    {
+      slug: 'baju',
+      nama: 'Baju',
+      foto: 'baju.jpg',
+      alt: '[GANTI] Foto kategori baju preloved berkualitas',
+      sub: 'Dress, blazer, tunik, kemeja, blouse, knitwear',
+    },
+    {
+      slug: 'celana',
+      nama: 'Celana',
+      foto: 'celana.jpg',
+      alt: '[GANTI] Foto kategori celana cewek',
+      sub: 'Celana bahan, kulot, denim/jeans, rok panjang',
+    },
+    {
+      slug: 'tas',
+      nama: 'Tas',
+      foto: 'tas.jpg',
+      alt: '[GANTI] Foto kategori tas wanita preloved mulus',
+      sub: 'Handbag, shoulder bag, tote bag, sling bag, dompet',
+    },
+    {
+      slug: 'jam-tangan',
+      nama: 'Jam tangan',
+      foto: 'jam-tangan.jpg',
+      alt: '[GANTI] Foto kategori jam tangan wanita',
+      sub: 'Jam tangan wanita original, lengkap box & kartu',
+    },
+    {
+      slug: 'sepatu-sandal',
+      nama: 'Sepatu & sandal',
+      foto: 'sepatu-sandal.jpg',
+      alt: '[GANTI] Foto kategori sepatu dan sandal wanita',
+      sub: 'Pointed heels, flat shoes, sneakers cewek, mules',
+    },
+    {
+      slug: 'hijab',
+      nama: 'Hijab',
+      foto: 'hijab.jpg',
+      alt: '[GANTI] Foto kategori hijab dan scarf wanita',
+      sub: 'Pashmina silk, scarf motif, square hijab premium',
+    },
+    {
+      slug: 'skincare-makeup',
+      nama: 'Skincare & makeup',
+      foto: 'skincare-makeup.jpg',
+      alt: '[GANTI] Foto kategori skincare dan makeup baru',
+      sub: 'Kondisi [GANTI: Wajib Baru & Masih Bersegel Resmi]',
+    },
+  ] as CategoryItem[],
+
+  // ==========================================
+  // 5. SKEMA BIAYA & KOMISI
   // ==========================================
   commissionTiers: [
     {
-      category: 'Fashion & Pakaian',
+      category: 'Baju, Celana & Hijab',
       rate: '[KOMISI: ...%]',
-      description: 'Dress, blazer, tunik, celana, rok, dan knitwear.',
+      description: 'Dress, blazer, celana, kulot, tunik, dan koleksi hijab.',
       features: [
         'Free foto estetik & penulisan deskripsi rapi',
         'Promosi berkala di katalog & media sosial',
@@ -91,82 +145,26 @@ export const siteConfig = {
       ],
     },
     {
-      category: 'Tas & Sepatu Branded',
+      category: 'Tas & Jam Tangan Branded',
       rate: '[KOMISI: ...%]',
-      description: 'Coach, Michael Kors, Charles & Keith, heels, sneakers.',
+      description: 'Tas designer/branded, jam tangan original, dompet kulit.',
       features: [
         'Pemeriksaan keaslian dan kondisi detail',
-        'Promosi prioritas ke pencari tas/sepatu',
+        'Promosi prioritas ke pencari tas & jam tangan',
         'Dukungan asuransi pengiriman ekspedisi',
       ],
     },
     {
-      category: 'Skincare, Makeup & Aksesoris',
+      category: 'Sepatu & Sandal, Skincare & Makeup',
       rate: '[KOMISI: ...%]',
-      description: 'Khusus skincare baru bersegel, jam tangan, kacamata.',
+      description: 'Heels, sneakers cewek, flat shoes, skincare/makeup baru.',
       features: [
-        'Validasi tanggal kedaluwarsa & segel original',
+        'Validasi segel & tanggal kedaluwarsa resmi',
         'Target pembeli cewek yang loyal & cepat deal',
         'Pengemasan ekstra aman dengan bubble wrap',
       ],
     },
   ] as CommissionTier[],
-
-  // ==========================================
-  // 5. KATEGORI BARANG YANG DITERIMA
-  // ==========================================
-  categories: [
-    {
-      id: 'fashion',
-      name: 'Pakaian & Fashion',
-      description: 'Blazer kantor, dress pesta, oversized shirt, outerwear, celana bahan.',
-      exampleBrands: 'Zara, Mango, H&M, Love Bonito, Uniqlo, brand lokal terkurasi',
-      iconName: 'shirt',
-      imagePath: 'kategori-fashion.svg',
-      alt: 'Contoh pakaian cewek preloved berkualitas',
-      isPlaceholder: true,
-    },
-    {
-      id: 'bags',
-      name: 'Tas & Dompet',
-      description: 'Handbag, shoulder bag, tote bag canvas, wallet, sling bag.',
-      exampleBrands: 'Coach, Kate Spade, Charles & Keith, Gentle Woman, Marhen.J',
-      iconName: 'shopping-bag',
-      imagePath: 'kategori-tas.svg',
-      alt: 'Contoh tas wanita preloved mulus',
-      isPlaceholder: true,
-    },
-    {
-      id: 'shoes',
-      name: 'Sepatu & Sandal',
-      description: 'Pointed heels, flat shoes, block heels, sneakers cewek.',
-      exampleBrands: 'Pedro, Charles & Keith, Melissa, Nike, Adidas, Veja',
-      iconName: 'footprints',
-      imagePath: 'kategori-sepatu.svg',
-      alt: 'Contoh sepatu wanita terawat',
-      isPlaceholder: true,
-    },
-    {
-      id: 'accessories',
-      name: 'Jam & Aksesoris',
-      description: 'Jam tangan wanita, kacamata hitam, scarf sutra, aksesoris premium.',
-      exampleBrands: 'Fossil, Daniel Wellington, Ray-Ban, Olivia Burton',
-      iconName: 'watch',
-      imagePath: 'kategori-aksesoris.svg',
-      alt: 'Contoh jam tangan dan aksesoris wanita',
-      isPlaceholder: true,
-    },
-    {
-      id: 'beauty',
-      name: 'Skincare & Makeup (Baru)',
-      description: 'Wajib kondisi 100% BARU dan masih tersegel (sealed / unopened).',
-      exampleBrands: 'Dior, SK-II, Rare Beauty, Somethinc, Laneige, Rom&nd',
-      iconName: 'sparkles',
-      imagePath: 'kategori-skincare.svg',
-      alt: 'Contoh skincare baru bersegel resmi',
-      isPlaceholder: true,
-    },
-  ] as CategoryItem[],
 
   // ==========================================
   // 6. CONTOH BARANG TERJUAL (GALERI)
@@ -175,7 +173,7 @@ export const siteConfig = {
     {
       id: 'barang-1',
       title: 'Coach Sierra Satchel Crossbody',
-      category: 'Tas Wanita',
+      category: 'Tas',
       priceSold: 'Rp 1.450.000',
       durationSold: 'Terjual dalam 2 hari',
       condition: 'Kondisi 95% mulus lengkap dustbag',
@@ -187,7 +185,7 @@ export const siteConfig = {
     {
       id: 'barang-2',
       title: 'Zara Oversized Structured Blazer',
-      category: 'Fashion',
+      category: 'Baju',
       priceSold: 'Rp 480.000',
       durationSold: 'Terjual dalam 24 jam',
       condition: 'Size S, Like New (1x pakai)',
@@ -199,7 +197,7 @@ export const siteConfig = {
     {
       id: 'barang-3',
       title: 'Charles & Keith Pointed Pumps',
-      category: 'Footwear',
+      category: 'Sepatu & sandal',
       priceSold: 'Rp 390.000',
       durationSold: 'Terjual dalam 3 hari',
       condition: 'Size 38, lengkap kotak original',
@@ -211,7 +209,7 @@ export const siteConfig = {
     {
       id: 'barang-4',
       title: 'Miss Dior Blooming Bouquet 100ml',
-      category: 'Beauty',
+      category: 'Skincare & makeup',
       priceSold: 'Rp 1.850.000',
       durationSold: 'Terjual dalam 4 hari',
       condition: 'Baru 100% masih segel plastik resmi',
@@ -223,7 +221,7 @@ export const siteConfig = {
     {
       id: 'barang-5',
       title: 'Gentle Woman Canvas Tote Bag',
-      category: 'Tas Wanita',
+      category: 'Tas',
       priceSold: 'Rp 260.000',
       durationSold: 'Terjual dalam 1 hari',
       condition: 'Original Bangkok, mulus bersih',
@@ -235,7 +233,7 @@ export const siteConfig = {
     {
       id: 'barang-6',
       title: 'Fossil Rose Gold Mesh Watch',
-      category: 'Aksesoris & Jam',
+      category: 'Jam tangan',
       priceSold: 'Rp 850.000',
       durationSold: 'Terjual dalam 5 hari',
       condition: 'Lengkap kotak kaleng & kartu garansi',
@@ -277,6 +275,14 @@ export const siteConfig = {
   // ==========================================
   faqs: [
     {
+      question: 'Barang apa saja yang bisa dititip di Titip Jual Izah?',
+      answer: 'Kami menerima 7 kategori utama barang wanita: 1. Baju (blazer, dress, kemeja, outerwear), 2. Celana (bahan, kulot, jeans, rok), 3. Tas (handbag, shoulder bag, tote bag, dompet), 4. Jam tangan (original wanita), 5. Sepatu & sandal (heels, flat shoes, sneakers cewek), 6. Hijab (pashmina, scarf silk, square), dan 7. Skincare & makeup (wajib kondisi baru/tersegel). Punya barang di luar daftar ini? Kamu bisa tanyakan dulu langsung via WhatsApp ke Kak Izah!',
+    },
+    {
+      question: 'Apa syarat kondisi khusus untuk titip skincare & makeup?',
+      answer: 'Khusus skincare dan makeup, [GANTI: Syarat Kondisi — Wajib 100% baru, belum pernah dibuka atau dicolek, masih dalam segel/plastik resmi pabrik, memiliki izin BPOM/resmi, dan masa kedaluwarsa (expired date) minimal 6-12 bulan ke depan demi higienitas dan kenyamanan pembeli].',
+    },
+    {
       question: 'Apakah barang titipan saya aman di tangan Kak Izah?',
       answer: 'Sangat aman. Seluruh barang titipan yang disimpan diperlakukan dengan higienis di ruang penyimpanan bersih khusus, bebas lembab, dan bebas asap rokok/hewan peliharaan. Setiap barang ditandai dengan identitas penitip yang tertib.',
     },
@@ -290,15 +296,11 @@ export const siteConfig = {
     },
     {
       question: 'Barang apa saja yang TIDAK BISA dititipkan?',
-      answer: 'Kami TIDAK menerima barang palsu/KW/tiruan (KW Super, 1:1, dsb), pakaian yang bernoda membandel atau sobek, pakaian dalam, serta skincare/makeup yang sudah pernah dibuka atau bekas pakai demi alasan kebersihan dan keamanan.',
+      answer: 'Kami TIDAK menerima barang tiruan/KW/palsu (KW Super, 1:1, dsb), pakaian yang bernoda membandel atau sobek parah, pakaian dalam, serta produk kosmetik/skincare yang sudah terbuka atau bekas pakai demi alasan kebersihan dan keamanan.',
     },
     {
       question: 'Siapa yang menentukan harga jual barang?',
       answer: 'Harga jual ditentukan atas persetujuan bersama. Kamu bisa mengajukan nominal yang diharapkan (harga bersih/nett), dan Kak Izah akan memberikan saran harga pasar preloved yang realistis agar barangmu cepat dilirik calon pembeli.',
-    },
-    {
-      question: 'Apakah identitas saya sebagai penitip dirahasiakan?',
-      answer: 'Ya, 100% anonim bila kamu menginginkannya. Kami tidak akan mempublikasikan nama akun media sosial atau nomor pribadi kamu ke calon pembeli.',
     },
   ] as FaqItem[],
 };
@@ -308,6 +310,15 @@ export const siteConfig = {
  */
 export function getWhatsAppUrl(customText?: string): string {
   const text = customText || siteConfig.defaultWaMessage;
+  const encoded = encodeURIComponent(text);
+  return `https://wa.me/${siteConfig.whatsappNumber}?text=${encoded}`;
+}
+
+/**
+ * Helper WhatsApp spesifik untuk kategori barang
+ */
+export function getCategoryWhatsAppUrl(categoryName: string): string {
+  const text = `Halo Kak Izah, saya mau titip jual ${categoryName}`;
   const encoded = encodeURIComponent(text);
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encoded}`;
 }

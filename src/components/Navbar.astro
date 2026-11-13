@@ -8,7 +8,7 @@ const waUrl = getWhatsAppUrl();
 ---
 
 <header class="sticky top-0 z-40 bg-cream-50/95 backdrop-blur-sm border-b border-blush-100 transition-all duration-200">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between font-body">
     
     <!-- Logo Gambar Asli Titip Jual Izah -->
     <a href="/" class="flex items-center gap-3 group">
@@ -20,16 +20,16 @@ const waUrl = getWhatsAppUrl();
         />
       </div>
       <div>
-        <span class="font-heading font-bold text-xl sm:text-2xl text-warmtext-dark tracking-tight block">
+        <span class="font-heading font-semibold text-2xl sm:text-3xl text-warmtext-dark tracking-tight block leading-none">
           {siteConfig.brandName}
         </span>
-        <span class="text-[11px] font-medium text-rosebrand-600 tracking-wider uppercase block -mt-1">
+        <span class="text-[11px] font-medium text-rosebrand-600 tracking-wider uppercase block mt-1 font-body">
           by {siteConfig.ownerName}
         </span>
       </div>
     </a>
 
-    <!-- Nav Links (Desktop) -->
+    <!-- Nav Links (DM Sans 500) -->
     <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-warmtext-muted">
       <a href="#cara-kerja" class="hover:text-rosebrand-600 transition-colors">Cara Kerja</a>
       <a href="#keuntungan" class="hover:text-rosebrand-600 transition-colors">Keuntungan</a>
@@ -40,7 +40,7 @@ const waUrl = getWhatsAppUrl();
       <a href="#faq" class="hover:text-rosebrand-600 transition-colors">FAQ</a>
     </nav>
 
-    <!-- Top WhatsApp Button -->
+    <!-- Top WhatsApp Button (DM Sans 600) -->
     <a
       href={waUrl}
       target="_blank"

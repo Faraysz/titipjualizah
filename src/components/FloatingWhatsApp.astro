@@ -1,50 +1,49 @@
 ---
-import { getWhatsAppUrl, siteConfig } from '../config/site';
+import { getWhatsAppUrl } from '../config/site';
 import Icon from './Icon.astro';
 
 const waUrl = getWhatsAppUrl();
 ---
 
-<div class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-end flex-col gap-2">
+<div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-end flex-col gap-2">
   
-  <!-- Pop-in Tooltip Bubble -->
+  <!-- Pop-in Tooltip Bubble (Ramping & Halus) -->
   <div
     id="wa-floating-bubble"
-    class="bg-white text-warmtext-dark text-xs font-medium py-2 px-3.5 rounded-2xl shadow-soft border border-blush-200 flex items-center gap-2 max-w-[210px] opacity-0 translate-y-2 pointer-events-none transition-all duration-500"
+    class="bg-white text-warmtext-dark text-[11px] font-medium py-1.5 px-3 rounded-2xl shadow-soft border border-blush-200 flex items-center gap-1.5 max-w-[190px] opacity-0 translate-y-2 pointer-events-none transition-all duration-300 font-body"
   >
-    <span>Mau titip barang preloved? Chat Kak Izah yuk!</span>
+    <span>Mau titip barang? Chat yuk!</span>
     <button
       type="button"
       id="close-wa-bubble"
       aria-label="Tutup sapaan"
-      class="text-warmtext-soft hover:text-warmtext-dark text-sm font-bold ml-1 focus:outline-none"
+      class="text-warmtext-soft hover:text-warmtext-dark text-xs font-bold ml-1 focus:outline-none"
     >
       &times;
     </button>
   </div>
 
-  <!-- Floating Green WhatsApp Button with Slow Pulse -->
+  <!-- Floating WhatsApp Button (Ramping, Clean & Elegan ala Allu) -->
   <a
     href={waUrl}
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Chat WhatsApp Kak Izah"
-    class="wa-float-btn w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-white bg-[#25d366] hover:bg-[#20ba5a] shadow-xl hover:scale-105 active:scale-95 transition-all relative group"
+    class="wa-float-btn w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white bg-[#25d366] hover:bg-[#20ba5a] shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all"
   >
-    <Icon name="message-circle" class="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-    <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-rosebrand-600 rounded-full border-2 border-white"></span>
+    <Icon name="message-circle" class="w-5 h-5 sm:w-6 sm:h-6 text-white" />
   </a>
 
 </div>
 
 <style>
-  /* Slow subtle pulse animation */
+  /* Slow subtle pulse animation (Halus & Tidak Mengganggu) */
   @keyframes slowWaPulse {
     0% {
-      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
     }
     70% {
-      box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
     }
     100% {
       box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
@@ -52,7 +51,7 @@ const waUrl = getWhatsAppUrl();
   }
 
   .wa-float-btn {
-    animation: slowWaPulse 3s infinite;
+    animation: slowWaPulse 3.5s infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -63,14 +62,14 @@ const waUrl = getWhatsAppUrl();
 </style>
 
 <script>
-  // Show bubble smoothly after 2.5 seconds
+  // Show bubble smoothly after 3 seconds
   setTimeout(() => {
     const bubble = document.getElementById('wa-floating-bubble');
     if (bubble) {
       bubble.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none');
       bubble.classList.add('opacity-100', 'translate-y-0');
     }
-  }, 2500);
+  }, 3000);
 
   // Close bubble button handler
   document.getElementById('close-wa-bubble')?.addEventListener('click', () => {
@@ -80,4 +79,3 @@ const waUrl = getWhatsAppUrl();
     }
   });
 </script>
-

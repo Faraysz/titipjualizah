@@ -35,26 +35,26 @@ const steps = [
 <section id="cara-kerja" class="py-16 sm:py-24 bg-white border-b border-blush-100">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Heading -->
+    <!-- Section Heading (Cormorant Garamond) -->
     <div class="text-center max-w-2xl mx-auto mb-14 fade-up-element">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
+      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
         Alur Praktis
       </span>
-      <h2 class="font-heading font-bold text-2xl sm:text-4xl text-warmtext-dark tracking-tight mb-4">
+      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
         4 Langkah Mudah Titip Jual di Izah
       </h2>
-      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
+      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
         Kamu cukup siapkan barang dari rumah, biarkan Izah yang menangani seluruh proses promosi sampai uang masuk rekening.
       </p>
     </div>
 
-    <!-- Steps Grid / Numbered List -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+    <!-- Steps Grid / Numbered List (DM Sans body) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 font-body">
       {steps.map((step, idx) => (
         <div class="fade-up-element bg-cream-50 rounded-3xl p-6 border border-blush-100 flex flex-col justify-between hover:border-blush-200 transition-colors">
           <div>
             <div class="flex items-center justify-between mb-6">
-              <span class="font-heading font-bold text-2xl text-rosebrand-600">
+              <span class="font-heading font-bold text-3xl text-rosebrand-600">
                 {step.number}
               </span>
               <div class="w-10 h-10 rounded-xl bg-white border border-blush-100 flex items-center justify-center text-rosebrand-700 shadow-sm">
@@ -62,7 +62,7 @@ const steps = [
               </div>
             </div>
 
-            <h3 class="font-heading font-bold text-lg text-warmtext-dark mb-2.5">
+            <h3 class="font-heading font-bold text-2xl text-warmtext-dark mb-2.5">
               {step.title}
             </h3>
             <p class="text-xs sm:text-sm text-warmtext-muted leading-relaxed">
@@ -79,7 +79,7 @@ const steps = [
     </div>
 
     <!-- Section Sub-CTA -->
-    <div class="mt-12 text-center fade-up-element">
+    <div class="mt-12 text-center fade-up-element font-body">
       <a
         href={waUrl}
         target="_blank"
@@ -93,4 +93,3 @@ const steps = [
 
   </div>
 </section>
-

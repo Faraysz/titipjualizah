@@ -1,4 +1,10 @@
 ---
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/600.css';
+import '@fontsource/cormorant-garamond/500-italic.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
 import { siteConfig } from '../config/site';
 
 interface Props {
@@ -26,7 +32,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="titip jual izah, titip jual cewek, preloved cewek, jastip barang wanita, titip jual baju, titip jual tas branded, titip jual skincare" />
+    <meta name="keywords" content="titip jual izah, titip jual cewek, baju, celana, tas, jam tangan, sepatu sandal, hijab, skincare makeup preloved, jastip barang wanita" />
     <meta name="author" content={siteConfig.ownerName} />
     <link rel="canonical" href={canonicalUrl} />
 
@@ -47,23 +53,17 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(ogImage, siteConfig.siteUrl).toString()} />
 
-    <!-- Google Fonts: Poppins (Body) & Playfair Display (Heading) with font-display: swap -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
     <style is:global>
-      /* Global Reset & Base Styling */
+      /* CSS Variables untuk Fontsource */
       :root {
+        --font-heading: 'Cormorant Garamond', Georgia, serif;
+        --font-body: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         --color-bg: #fffbf9;
         --color-text: #292524;
       }
 
       body {
-        font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+        font-family: var(--font-body);
         color: var(--color-text);
         background-color: var(--color-bg);
         -webkit-font-smoothing: antialiased;
@@ -71,8 +71,18 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
         overflow-x: hidden;
       }
 
-      h1, h2, h3, h4, .font-heading {
-        font-family: 'Playfair Display', Georgia, serif;
+      /* Heading: Cormorant Garamond (Minimal 2.25rem mobile, 3.5rem+ desktop hero, line-height 1.1-1.2, bobot min 500) */
+      h1, h2, h3, .font-heading {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+        color: #1c1917; /* stone-900: kontras tinggi */
+      }
+
+      /* Teks kecil, label tombol, harga, metadata selalu pakai DM Sans */
+      button, a, input, select, textarea, .font-body, nav, .text-xs, .text-sm {
+        font-family: var(--font-body);
       }
 
       /* Respect prefers-reduced-motion */
@@ -118,7 +128,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
   <body class="selection:bg-blush-200 selection:text-rosebrand-800">
     <slot />
 
-    <!-- Lightweight IntersectionObserver for fade-up animation (Zero heavy libs) -->
+    <!-- Lightweight IntersectionObserver for fade-up animation -->
     <script>
       const observerCallback: IntersectionObserverCallback = (entries, observer) => {
         entries.forEach((entry) => {
@@ -141,4 +151,3 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     </script>
   </body>
 </html>
-

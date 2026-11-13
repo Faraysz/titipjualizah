@@ -8,26 +8,26 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
 <section id="faq" class="py-16 sm:py-24 bg-cream-50 border-b border-blush-100">
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Heading -->
+    <!-- Section Heading (Cormorant Garamond) -->
     <div class="text-center mb-14 fade-up-element">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
+      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
         Tanya Jawab
       </span>
-      <h2 class="font-heading font-bold text-2xl sm:text-4xl text-warmtext-dark tracking-tight mb-4">
+      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
         Pertanyaan yang Sering Diajukan
       </h2>
-      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
-        Penjelasan lengkap seputar keamanan barang, pembayaran, evaluasi barang belum laku, hingga ketentuan titip jual.
+      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
+        Penjelasan lengkap seputar 7 kategori barang, syarat kondisi, keamanan, hingga mekanisme pencairan dana.
       </p>
     </div>
 
-    <!-- Modern Accordion Cards (No native details tag) -->
-    <div class="space-y-4" id="faq-accordion-group">
+    <!-- Modern Accordion Cards (DM Sans for Question & Answer) -->
+    <div class="space-y-4 font-body" id="faq-accordion-group">
       {siteConfig.faqs.map((faq, idx) => (
         <div class="faq-item fade-up-element bg-white rounded-2xl border border-blush-100 shadow-soft overflow-hidden transition-all duration-200">
           <button
             type="button"
-            class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-heading font-bold text-sm sm:text-base text-warmtext-dark cursor-pointer select-none focus:outline-none"
+            class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-body font-semibold text-sm sm:text-base text-warmtext-dark cursor-pointer select-none focus:outline-none"
             aria-expanded={idx === 0 ? "true" : "false"}
           >
             <span>{faq.question}</span>
@@ -43,8 +43,8 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
       ))}
     </div>
 
-    <!-- Extra WA Contact Prompt -->
-    <div class="mt-12 text-center fade-up-element">
+    <!-- Extra WA Contact Prompt (DM Sans) -->
+    <div class="mt-12 text-center fade-up-element font-body">
       <p class="text-xs sm:text-sm text-warmtext-muted mb-3">
         Punya pertanyaan lain yang belum terjawab di sini?
       </p>
@@ -74,7 +74,7 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
     toggle?.addEventListener('click', () => {
       const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
-      // Tutup semua item lain
+      // Tutup item lain
       faqItems.forEach((other) => {
         if (other !== item) {
           const otherToggle = other.querySelector('.faq-toggle');
@@ -88,7 +88,7 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
         }
       });
 
-      // Toggle item saat ini
+      // Toggle item ini
       if (isExpanded) {
         toggle.setAttribute('aria-expanded', 'false');
         content?.classList.add('hidden');

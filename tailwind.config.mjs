@@ -4,15 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Palet Terbatas & Elegan (Anti AI Slop)
-        // 1. Krem/Putih Hangat (Background Utama & Card)
+        // Palet Terbatas & Elegan (Anti AI Slop - Referensi Allu)
         cream: {
           50: '#fffbf9',
           100: '#fff7f4',
           200: '#ffede7',
           300: '#ffe2d8',
         },
-        // 2. Pink Utama Lembut (Blush/Soft Rose untuk Card Accent & Badge)
         blush: {
           50: '#fff0f3',
           100: '#ffe3e8',
@@ -20,24 +18,24 @@ export default {
           300: '#fda4b4',
           400: '#fb7189',
         },
-        // 3. Pink Pekat Aksen (Deep Berry Rose untuk Tombol Utama & Highlight Kontras)
         rosebrand: {
           500: '#f43f5e',
           600: '#e11d48',
           700: '#be123c',
           800: '#9f1239',
         },
-        // 4. Warna Teks Gelap Hangat (Warm Espresso / Stone, BUKAN hitam pekat #000)
         warmtext: {
-          main: '#292524',    // stone-800: nyaman dibaca, ramah mata
-          muted: '#78716c',   // stone-500: deskripsi sekunder
-          soft: '#a8a29e',    // stone-400: placeholder & metadata
-          dark: '#1c1917',    // stone-900: heading kontras tinggi
+          main: '#292524',    // stone-800
+          muted: '#78716c',   // stone-500
+          soft: '#a8a29e',    // stone-400
+          dark: '#1c1917',    // stone-900 (kontras tinggi untuk Cormorant Garamond)
         }
       },
       fontFamily: {
-        heading: ['"Playfair Display"', 'Georgia', 'serif'],
-        body: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
+        // Heading: Cormorant Garamond (Fallback: Georgia, serif)
+        heading: ['var(--font-heading)', 'Cormorant Garamond', 'Georgia', 'serif'],
+        // Body: DM Sans (Fallback: system-ui, sans-serif)
+        body: ['var(--font-body)', 'DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
       },
       borderRadius: {
         '2xl': '1.25rem',
@@ -52,4 +50,3 @@ export default {
   },
   plugins: [],
 };
-
