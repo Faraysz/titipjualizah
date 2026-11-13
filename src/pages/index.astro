@@ -2,10 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import Benefits from '../components/Benefits.astro';
-import Categories from '../components/Categories.astro';
 import Pricing from '../components/Pricing.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Terms from '../components/Terms.astro';
+import Categories from '../components/Categories.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
 import CtaFooter from '../components/CtaFooter.astro';
@@ -25,29 +25,28 @@ import { siteConfig } from '../config/site';
     <!-- 2. Hero Section -->
     <Hero />
 
-    <!-- 3. Cara Kerja (4 Langkah) -->
-    <HowItWorks />
-
-    <!-- 4. Keuntungan -->
-    <Benefits />
-
-    <!-- 5. Kategori Barang -->
-    <Categories />
-
-    <!-- 6. Biaya / Skema Komisi -->
+    <!-- 3. Pilih Sistem Layanan (Terima Beres vs Titip Jual Biasa + Tabel Komparasi) -->
     <Pricing />
 
-    <!-- 7. Testimoni & Contoh Barang Terjual -->
+    <!-- 4. Alur Daftar (Titip Jual Biasa & Format Foto) -->
+    <HowItWorks />
+
+    <!-- 5. Syarat & Ketentuan Layanan (Accordion Details per Sistem) -->
+    <Terms />
+
+    <!-- 6. Kategori Barang Pilihan -->
+    <Categories />
+
+    <!-- 7. Testimoni Chat Asli & Galeri Terjual -->
     <Testimonials />
 
-    <!-- 8. FAQ (Accordion) -->
+    <!-- 8. FAQ (Pertanyaan Umum) -->
     <Faq />
   </main>
 
-  <!-- 9. CTA Penutup & Footer -->
+  <!-- 9. Bagian Penutup Personal (Foto Izah + WhatsApp) & Footer Resmi -->
   <CtaFooter />
 
-  <!-- 10. Tombol WhatsApp Mengambang -->
+  <!-- 10. Tombol WhatsApp Mengambang (Auto-hide saat di section penutup) -->
   <FloatingWhatsApp />
 </Layout>
-

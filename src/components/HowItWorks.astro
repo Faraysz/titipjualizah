@@ -1,60 +1,43 @@
 ---
+import { siteConfig, getWhatsAppUrl } from '../config/site';
 import Icon from './Icon.astro';
-import { getWhatsAppUrl } from '../config/site';
 
-const waUrl = getWhatsAppUrl();
-
-const steps = [
-  {
-    number: '01',
-    title: 'Kirim Foto via WhatsApp',
-    desc: 'Foto barangmu dari HP dengan pencahayaan cukup. Kirimkan info merek, ukuran, kondisi, dan kelengkapannya ke WA Kak Izah.',
-  },
-  {
-    number: '02',
-    title: 'Penetapan Harga & Promosi',
-    desc: 'Setelah harga disepakati bersama, Kak Izah mempromosikan barangmu dengan deskripsi rapi ke jaringan pembeli cewek.',
-  },
-  {
-    number: '03',
-    title: 'Barang Laku Terjual',
-    desc: 'Ada pembeli yang berminat dan transfer. Kak Izah yang menangani obrolan pembeli, pembayaran, dan pengiriman aman.',
-  },
-  {
-    number: '04',
-    title: 'Pencairan Dana ke Rekening',
-    desc: 'Setelah barang diterima pembeli tanpa kendala, uang penjualan dikurangi komisi langsung ditransfer ke rekening bank kamu.',
-  },
-];
+const steps = siteConfig.registrationSteps;
+const waUrl = getWhatsAppUrl(siteConfig.titipBiasaWaMessage);
 ---
 
-<section id="cara-kerja" class="py-16 sm:py-24 bg-cream-50 border-b border-stone-200/70">
+<section id="alur-daftar" class="py-16 sm:py-24 bg-cream-50 border-b border-stone-200/70">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
     <!-- Section Heading (ALLU Inspired: Clean & Editorial) -->
-    <div class="max-w-2xl mb-14 sm:mb-18 fade-up-element text-center sm:text-left">
+    <div class="max-w-2xl mb-12 sm:mb-16 fade-up-element text-center sm:text-left">
       <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-rosebrand-700 mb-2 font-body">
-        Alur Transaksi
+        Proses Mudah &amp; Cepat
       </p>
       <h2 class="font-heading font-semibold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-3">
-        4 Langkah Mudah Titip Jual
+        Alur Daftar Titip Jual Biasa
       </h2>
       <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
-        Proses mudah dari rumah. Kamu cukup siapkan barang, biar Izah yang mengurus seluruh promosi sampai dana cair.
+        Cukup ikuti 4 langkah praktis ini dari rumah. Baju tetap di tanganmu, admin yang sebarkan fotonya ke calon pembeli.
       </p>
     </div>
 
-    <!-- Editorial Stepper (No Card Boxes, Clean Numbered Flow) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 font-body relative">
+    <!-- Editorial Stepper (4 Langkah Bernomor) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-8 font-body mb-12">
       {steps.map((step, idx) => (
-        <div class="fade-up-element flex flex-col justify-between pt-6 border-t-2 border-stone-200 hover:border-rosebrand-600 transition-colors">
+        <div class="fade-up-element bg-white rounded-2xl p-6 sm:p-7 border border-stone-200/90 shadow-xs flex flex-col justify-between hover:border-rosebrand-400 transition-colors">
           <div>
-            <!-- Large Minimalist Number (Cormorant Garamond) -->
-            <span class="font-heading font-light text-4xl sm:text-5xl text-rosebrand-700/80 block mb-4">
-              {step.number}
-            </span>
+            <!-- Number Display (Cormorant Garamond) -->
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-heading font-light text-4xl sm:text-5xl text-rosebrand-700 block">
+                {step.number}
+              </span>
+              <span class="text-[11px] font-semibold text-rosebrand-600 bg-blush-100 px-2.5 py-0.5 rounded-full">
+                Langkah {idx + 1}
+              </span>
+            </div>
 
-            <h3 class="font-heading font-bold text-xl sm:text-2xl text-warmtext-dark mb-2 leading-snug">
+            <h3 class="font-heading font-bold text-xl sm:text-2xl text-warmtext-dark mb-2.5 leading-snug">
               {step.title}
             </h3>
             
@@ -63,24 +46,50 @@ const steps = [
             </p>
           </div>
 
-          <div class="mt-6 pt-4 text-[11px] font-medium text-warmtext-soft flex items-center gap-1">
-            <span>Tahap {idx + 1} dari 4</span>
+          <div class="mt-6 pt-3 border-t border-stone-100 text-[11px] text-stone-400 font-medium">
+            Sistem Titip Jual Biasa
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Sub-CTA Text Link -->
-    <div class="mt-14 pt-8 border-t border-stone-200/70 text-center sm:text-left fade-up-element font-body">
-      <a
-        href={waUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-sm font-semibold text-rosebrand-700 hover:text-rosebrand-800"
-      >
-        <span>Punya barang yang mau dititipkan? Hubungi Kak Izah via WhatsApp</span>
-        <Icon name="arrow-right" class="w-4 h-4 text-rosebrand-600" />
-      </a>
+    <!-- Aturan Format Foto & Caption Wajib (Penting!) -->
+    <div class="fade-up-element rounded-2xl bg-white border border-rosebrand-200 p-6 sm:p-8 font-body shadow-xs">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 mb-4 border-b border-stone-200/80">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-full bg-rosebrand-100 text-rosebrand-700 flex items-center justify-center shrink-0">
+            <Icon name="check" class="w-4 h-4" />
+          </span>
+          <h4 class="font-heading font-bold text-xl sm:text-2xl text-warmtext-dark">
+            Aturan Format Foto &amp; Caption Wajib
+          </h4>
+        </div>
+        <span class="text-xs text-rosebrand-700 font-medium bg-rosebrand-50 px-3 py-1 rounded-full border border-rosebrand-200">
+          Wajib sebelum diposting
+        </span>
+      </div>
+
+      <p class="text-xs sm:text-sm text-warmtext-dark leading-relaxed mb-4">
+        {siteConfig.captionFormatRule}
+      </p>
+
+      <div class="p-4 rounded-xl bg-cream-50 border border-blush-200/70 text-xs text-warmtext-muted leading-relaxed">
+        <strong class="text-warmtext-dark font-semibold block mb-1">💡 Tips Hemat dari Kak Izah:</strong>
+        Kamu boleh membuat <strong>kolase 4 sampai 6 foto baju dalam 1 frame</strong>, dan tetap akan dihitung sebagai <strong>1 foto saja</strong>! Pastikan tulisan detail dan minus terbaca dengan jelas ya, Kak.
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-stone-100">
+        <span class="text-xs text-warmtext-muted">Siap kirim foto baju kamu sekarang?</span>
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-rosebrand-700 hover:text-rosebrand-800"
+        >
+          <span>Chat WhatsApp Kak Izah untuk Mulai</span>
+          <Icon name="arrow-right" class="w-4 h-4" />
+        </a>
+      </div>
     </div>
 
   </div>

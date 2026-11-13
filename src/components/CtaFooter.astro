@@ -3,40 +3,94 @@ import { Image } from 'astro:assets';
 import { siteConfig, getWhatsAppUrl } from '../config/site';
 import Icon from './Icon.astro';
 import logoImg from '../assets/logo.png';
+import izahPhoto from '../assets/tentang/izah.jpg';
 
 const waUrl = getWhatsAppUrl();
+const closing = siteConfig.closingSection;
 ---
 
-<!-- Final Action Banner (Editorial Clean Look, Cormorant Garamond) -->
-<section class="py-20 sm:py-28 bg-rosebrand-600 text-white relative overflow-hidden">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10 fade-up-element font-body">
-    <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-blush-200 mb-3">
-      Mulai Sekarang
-    </p>
-    
-    <h2 class="font-heading font-semibold text-4xl sm:text-6xl tracking-tight mb-6 text-white leading-[1.08]">
-      Lemari Penuh? Saatnya Decluttering &amp; Jadi Cuan Bersama Izah.
-    </h2>
-    
-    <p class="text-blush-100 text-sm sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed font-normal">
-      Kirimkan foto baju, tas, sepatu, hijab, atau skincare yang ingin kamu jual. Kak Izah siap bantu urus sampai laku ke pemilik baru.
-    </p>
+<!-- 1. BAGIAN PENUTUP PERSONAL (FOTO IZAH + WHATSAPP) -->
+<section id="penutup-izah" class="py-16 sm:py-24 bg-gradient-to-b from-white to-cream-50 border-b border-stone-200/70 overflow-hidden relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      
+      <!-- Sisi Foto Izah (Mobile: di atas, Desktop: di kiri) -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end fade-up-element order-1">
+        <div class="relative w-full max-w-[320px] sm:max-w-[360px]">
+          
+          <!-- Offset Blok Pink Pastel Lembut di Belakang Foto (Tanpa Glow Berlebihan) -->
+          <div 
+            class="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full bg-blush-200/80 rounded-[2.5rem] rounded-tl-[4.5rem] -z-10 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1"
+            aria-hidden="true"
+          ></div>
 
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a
-        href={waUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full sm:w-auto px-10 py-4 rounded-full text-base font-semibold bg-white text-rosebrand-700 hover:bg-cream-50 shadow-sm hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-3 font-body tracking-wide"
-      >
-        <Icon name="message-circle" class="w-5 h-5 text-rosebrand-700" />
-        <span>Chat WhatsApp Kak Izah Sekarang</span>
-      </a>
+          <!-- Bingkai Foto Lengkung/Arch Lembut -->
+          <div class="relative aspect-[3/4] w-full overflow-hidden rounded-[2.5rem] rounded-tl-[4.5rem] bg-stone-100 shadow-soft border-2 border-white">
+            <Image
+              src={izahPhoto}
+              alt={closing.photoAlt}
+              class="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Gelembung Chat Kecil Lucu di Dekat Foto -->
+          <div class="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 z-20 greeting-bubble-anim">
+            <div class="bg-white/95 backdrop-blur-sm border border-blush-200 text-warmtext-dark px-3.5 py-2 rounded-2xl rounded-bl-sm shadow-soft flex items-center gap-2 font-body text-xs sm:text-sm font-medium">
+              <span class="w-2 h-2 rounded-full bg-rosebrand-500 animate-pulse"></span>
+              <span>{closing.greetingBubble}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sisi Teks & CTA WhatsApp (Mobile: di bawah, Desktop: di kanan) -->
+      <div class="lg:col-span-7 text-center lg:text-left fade-up-element order-2">
+        
+        <!-- Judul Pendek Bernada Personal (Cormorant Garamond) -->
+        <h2 class="font-heading font-semibold text-3xl sm:text-5xl lg:text-[54px] text-warmtext-dark tracking-tight leading-[1.12] mb-5">
+          {closing.title}
+        </h2>
+
+        <!-- Satu Kalimat Penutup yang Hangat (DM Sans) -->
+        <p class="text-warmtext-muted text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 font-body font-normal">
+          {closing.description}
+        </p>
+
+        <!-- Tombol WhatsApp: Gelembung Balasan Chat Pink Pekat -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-4 font-body">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="chat-bubble-btn w-full sm:w-auto px-8 py-4 rounded-2xl rounded-bl-sm text-base font-semibold bg-rosebrand-600 hover:bg-rosebrand-700 text-white shadow-btn hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 tracking-wide"
+          >
+            <Icon name="message-circle" class="w-5 h-5 text-white shrink-0" />
+            <span>{closing.buttonText}</span>
+          </a>
+        </div>
+
+        <!-- Tautan Instagram Kecil & Ramah -->
+        <div class="flex items-center justify-center lg:justify-start gap-2 pt-2 text-xs sm:text-sm text-warmtext-muted font-body">
+          <a
+            href={siteConfig.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 hover:text-rosebrand-600 transition-colors"
+          >
+            <Icon name="instagram" class="w-4 h-4 text-rosebrand-600 shrink-0" />
+            <span>Atau kepoin keseharian di <strong class="text-warmtext-dark hover:underline">{siteConfig.instagramHandle}</strong></span>
+          </a>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- Main Footer (Warna Hangat Lembut & Elegan - BUKAN Hitam) -->
+<!-- 2. MAIN FOOTER (Warna Hangat Lembut & Elegan - BUKAN Hitam) -->
 <footer class="bg-cream-100 text-warmtext-muted py-14 sm:py-18 border-t border-stone-200/80 font-body text-xs sm:text-sm">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 mb-12">
@@ -64,20 +118,19 @@ const waUrl = getWhatsAppUrl();
           Navigasi Halaman
         </h4>
         <ul class="space-y-2.5">
-          <li><a href="#cara-kerja" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">Cara Kerja</a></li>
-          <li><a href="#keuntungan" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">Keuntungan</a></li>
+          <li><a href="#pilih-sistem" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">Pilih Sistem Layanan</a></li>
+          <li><a href="#alur-daftar" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">Alur Daftar Titip Biasa</a></li>
+          <li><a href="#syarat-ketentuan" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">Syarat &amp; Ketentuan</a></li>
           <li><a href="#kategori" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">7 Kategori Barang</a></li>
-          <li><a href="#komisi" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">Skema Komisi</a></li>
-          <li><a href="#terjual" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">Barang Terjual</a></li>
           <li><a href="#testimoni" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">Testimoni Asli</a></li>
           <li><a href="#faq" class="text-warmtext-muted hover:text-rosebrand-600 transition-colors">FAQ</a></li>
         </ul>
       </div>
 
-      <!-- Official Contact -->
+      <!-- Official Contact & Socials -->
       <div class="md:col-span-3">
         <h4 class="font-body font-semibold text-xs text-warmtext-dark uppercase tracking-wider mb-4">
-          Kontak Resmi
+          Kontak &amp; Media Sosial
         </h4>
         <ul class="space-y-3">
           <li>
@@ -99,12 +152,33 @@ const waUrl = getWhatsAppUrl();
               class="flex items-center gap-2 text-warmtext-dark hover:text-rosebrand-600 transition-colors font-medium"
             >
               <Icon name="instagram" class="w-4 h-4 text-rosebrand-600 shrink-0" />
-              <span>Instagram: {siteConfig.instagramHandle}</span>
+              <span>Instagram: {siteConfig.socialHandle}</span>
             </a>
           </li>
-          <li class="flex items-center gap-2 text-warmtext-soft text-xs pt-1">
-            <Icon name="truck" class="w-4 h-4 text-warmtext-soft shrink-0" />
-            <span>Pengiriman aman seluruh Indonesia</span>
+          <li>
+            <a
+              href={siteConfig.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 text-warmtext-dark hover:text-stone-900 transition-colors font-medium"
+            >
+              <Icon name="arrow-right" class="w-3.5 h-3.5 text-stone-500 shrink-0" />
+              <span>TikTok: {siteConfig.socialHandle}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={siteConfig.threadsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 text-warmtext-dark hover:text-stone-900 transition-colors font-medium"
+            >
+              <Icon name="arrow-right" class="w-3.5 h-3.5 text-stone-500 shrink-0" />
+              <span>Threads: {siteConfig.socialHandle}</span>
+            </a>
+          </li>
+          <li class="pt-1 text-[11px] text-warmtext-muted border-t border-stone-200/80">
+            {siteConfig.paymentNote}
           </li>
         </ul>
       </div>
@@ -120,3 +194,25 @@ const waUrl = getWhatsAppUrl();
     </div>
   </div>
 </footer>
+
+<style>
+  /* Animasi mengambang perlahan untuk gelembung sapaan */
+  @keyframes gentleFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .greeting-bubble-anim {
+    animation: gentleFloat 4s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .greeting-bubble-anim {
+      animation: none !important;
+    }
+  }
+</style>

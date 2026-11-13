@@ -15,41 +15,48 @@ const waUrl = getWhatsAppUrl();
       <div class="lg:col-span-7 text-center lg:text-left fade-up-element">
         
         <!-- Main Headline (Cormorant Garamond) -->
-        <h1 class="font-heading font-semibold text-4xl sm:text-6xl lg:text-[64px] text-warmtext-dark tracking-tight leading-[1.08] mb-5">
+        <h1 class="font-heading font-semibold text-4xl sm:text-6xl lg:text-[62px] text-warmtext-dark tracking-tight leading-[1.08] mb-5">
           Lemari Penuh Jadi Uang? <span class="font-normal italic text-rosebrand-600">Biar Izah yang Urus</span> Sampai Laku!
         </h1>
 
-        <!-- Natural Scope Explanation (DM Sans) -->
+        <!-- Scope Explanation Fokus Pakaian & 2 Sistem (DM Sans) -->
         <p class="text-base sm:text-lg text-warmtext-muted mb-7 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal font-body">
-          Ubah koleksi baju, tas, sepatu, hijab, sampai skincare yang menumpuk di lemari jadi uang tunai tanpa repot foto ulang, balas ratusan chat, atau COD.
+          Jasa titip jual baju &amp; fashion cewek terpercaya. Pilih sistem <strong>Terima Beres</strong> (admin urus foto, ukur, packing wangi, sampai kirim) atau sistem <strong>Titip Jual Biasa</strong> (hemat biaya mulai Rp5.000/foto, barang tetap di rumahmu).
         </p>
 
-        <!-- CTA Action Button -->
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8 font-body">
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 mb-8 font-body">
+          <a
+            href="#pilih-sistem"
+            class="w-full sm:w-auto px-8 py-3.5 rounded-full text-base font-semibold bg-rosebrand-600 hover:bg-rosebrand-700 text-white shadow-btn hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2.5 tracking-wide"
+          >
+            <span>Pilih Sistem Titip Jual</span>
+            <Icon name="arrow-right" class="w-4 h-4 text-white" />
+          </a>
           <a
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full sm:w-auto px-8 py-3.5 rounded-full text-base font-medium bg-rosebrand-600 hover:bg-rosebrand-700 text-white shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 tracking-wide"
+            class="w-full sm:w-auto px-7 py-3.5 rounded-full text-base font-medium bg-white hover:bg-cream-100 text-warmtext-dark border border-stone-200/90 hover:border-rosebrand-300 shadow-xs hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2.5"
           >
-            <Icon name="message-circle" class="w-5 h-5 text-white" />
-            <span>Chat WhatsApp Kak Izah</span>
+            <Icon name="message-circle" class="w-4 h-4 text-emerald-600" />
+            <span>Chat WhatsApp</span>
           </a>
         </div>
 
         <!-- Trust List (ALLU Style: Clean, Subtle Divider) -->
-        <div class="pt-5 border-t border-stone-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8 text-xs sm:text-sm text-warmtext-muted font-body">
+        <div class="pt-5 border-t border-stone-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-7 text-xs sm:text-sm text-warmtext-muted font-body">
           <div class="flex items-center gap-2">
-            <Icon name="check" class="w-4 h-4 text-emerald-600 shrink-0" />
-            <span>Konsultasi gratis</span>
+            <Icon name="check" class="w-4 h-4 text-rosebrand-600 shrink-0" />
+            <span>Terima Beres Rp7.000/baju</span>
           </div>
           <div class="flex items-center gap-2">
             <Icon name="check" class="w-4 h-4 text-emerald-600 shrink-0" />
-            <span>Tanpa biaya di muka</span>
+            <span>Titip Biasa Rp5.000/foto</span>
           </div>
           <div class="flex items-center gap-2">
             <Icon name="check" class="w-4 h-4 text-rosebrand-600 shrink-0" />
-            <span>Komisi transparan</span>
+            <span>Promosi di 4 Media Sosial</span>
           </div>
         </div>
 
