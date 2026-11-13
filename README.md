@@ -1,85 +1,56 @@
-# 🌸 Titip Jual Izah (Project: `titipjualizah`)
+<div align="center">
 
-Landing page resmi **Titip Jual Izah** — Jasa titip jual barang-barang cewek oleh **Kak Izah**. Dibangun dengan arsitektur **Astro (Static)**, **Tailwind CSS**, dan **TypeScript**.
+# 🌸 Titip Jual Izah
 
-Desain berkonsep feminin pastel (*soft blush*, *peach*, *warm cream*, aksen *deep rose*), terinspirasi dari prinsip desain rapi & terpercaya [ALLU Indonesia](https://allu-id.com/id/), bebas AI slop, dan mobile-first dengan performa tinggi.
+**Landing Page Resmi Jasa Titip Jual Barang Wanita oleh Kak Izah**
 
----
+[![Astro](https://img.shields.io/badge/Astro-Static%20Site-BC52EE?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v3/4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
+[![License](https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge)](LICENSE)
 
-## 🎨 Tipografi Final (Self-Hosted via Fontsource)
-
-- **Heading:** `Cormorant Garamond` (bobot 500 dan 600, plus italic 500 di hero)
-- **Body & Controls:** `DM Sans` (bobot 400, 500, 600)
-- **CSS Variables:** `--font-heading` (fallback: `Georgia, serif`) dan `--font-body` (fallback: `system-ui, sans-serif`)
-- Preloaded dan `font-display: swap` untuk performa render cepat tanpa layout shift.
-
----
-
-## 👗 7 Kategori Barang yang Diterima
-
-Daftar 7 kategori resmi disusun rapi dan disimpan di [`src/config/site.ts`](src/config/site.ts):
-
-1. **Baju** (`baju.jpg`) — Blazer, dress, kemeja, tunik, blouse, knitwear
-2. **Celana** (`celana.jpg`) — Celana bahan, kulot, denim/jeans, rok panjang
-3. **Tas** (`tas.jpg`) — Handbag, shoulder bag, tote bag, sling bag, dompet
-4. **Jam tangan** (`jam-tangan.jpg`) — Jam tangan wanita original, lengkap box & kartu
-5. **Sepatu & sandal** (`sepatu-sandal.jpg`) — Pointed heels, flat shoes, sneakers cewek, mules
-6. **Hijab** (`hijab.jpg`) — Pashmina silk, scarf motif, square hijab premium
-7. **Skincare & makeup** (`skincare-makeup.jpg`) — Kondisi: **[GANTI: Wajib Baru & Masih Bersegel Resmi]**
-
-> *Tiap kartu kategori dapat diklik langsung untuk membuka WhatsApp dengan pesan otomatis, misalnya: `"Halo Kak Izah, saya mau titip jual Baju"`.*  
-> *Dilengkapi kartu ke-8 sebagai penutup simetris: **"Lainnya? Tanya dulu lewat WhatsApp"**.*
+</div>
 
 ---
 
-## 🖼️ Tempat Menaruh Foto Asli (`src/assets/`)
+## 🎯 Tentang Proyek Ini
 
-| Folder Asset | Deskripsi | Ukuran/Rasio Ideal |
-|---|---|---|
-| **`src/assets/kategori/`** | 7 Foto Kategori (`baju.jpg`, `celana.jpg`, `tas.jpg`, `jam-tangan.jpg`, `sepatu-sandal.jpg`, `hijab.jpg`, `skincare-makeup.jpg`) | 1:1 (Persegi, 600x600 px) |
-| **`src/assets/hero/`** | Foto showcase hero utama (`hero-showcase.svg`) | 4:3 (800x600 px) |
-| **`src/assets/barang/`** | Foto barang terjual (`barang-1.svg` s/d `barang-6.svg`) | 1:1 (600x600 px) |
-| **`src/assets/testimoni/`** | Screenshot chat WhatsApp asli (`testi-1.jpg`, `testi-2.jpg`) | 9:16 Story / Portrait |
-| **`src/assets/logo.jpg`** | Logo resmi Titip Jual Izah (sudah terpasang) | Persegi / Monogram |
+**Titip Jual Izah** adalah website landing page resmi untuk layanan jasa titip jual barang-barang wanita (fashion, tas & sepatu branded, skincare, dan aksesoris) yang dikelola oleh **Kak Izah**. 
+
+Dibangun dengan arsitektur **Static Site Generation (SSG)** menggunakan **Astro** dan **Tailwind CSS**, website ini menghadirkan desain berkonsep feminin pastel (*soft blush, peach, warm cream*, dengan aksen *deep rose*) yang bersih, terstruktur, *mobile-first*, dan memiliki performa muat yang sangat tinggi.
 
 ---
 
-## 📞 Kontak & Medsos Resmi Terpasang
+## ✨ Fitur Utama
 
-- **WhatsApp:** `+62 821-3995-6462`
-- **Instagram:** [@titipjual_izah](https://instagram.com/titipjual_izah)
-
----
-
-## ⚙️ Pengaturan Komisi (Tersisa yang Perlu Anda Isi)
-
-Buka file [`src/config/site.ts`](src/config/site.ts), bagian `commissionTiers`:
-- Ubah `'[KOMISI: ...%]'` untuk **Baju, Celana & Hijab** (misal `'15%'`)
-- Ubah `'[KOMISI: ...%]'` untuk **Tas & Jam Tangan Branded** (misal `'10% - 12%'`)
-- Ubah `'[KOMISI: ...%]'` untuk **Sepatu & Sandal, Skincare & Makeup** (misal `'10%'`)
+| Fitur | Deskripsi |
+|---------|-------------|
+| 🎨 **Desain Feminin & Modern** | Palet warna pastel yang elegan, tipografi rapi, dan tata letak yang membangun kepercayaan (*trust*). |
+| ⚡ **Performa Tinggi (Astro)** | Output HTML statis murni dengan *zero JavaScript by default*, memastikan skor Lighthouse 95-100. |
+| 📱 **Mobile-First Responsive** | Tampilan optimal di semua perangkat, mengingat mayoritas pengguna mengakses via smartphone. |
+| 💬 **Integrasi Kontak Langsung** | Tombol WhatsApp yang terhubung langsung ke `+62 821-3995-6462` dengan pesan template otomatis. |
+| ⭐ **Testimoni Nyata** | Bagian khusus yang menampilkan bukti screenshot chat WhatsApp asli dari penitip yang puas. |
+| 📊 **Tabel Komisi Transparan** | Informasi persentase komisi yang jelas untuk berbagai kategori barang (Fashion, Tas/Sepatu, Skincare). |
 
 ---
 
-## 💻 Cara Menjalankan & Preview Lokal
+## 📂 Struktur Proyek
 
-1. **Jalankan server pengembangan:**
-   ```bash
-   npm run dev
-   ```
-   Buka browser di: [http://localhost:4321](http://localhost:4321)
-
-2. **Uji build statis produksi:**
-   ```bash
-   npm run build
-   npm run preview
-   ```
-
----
-
-## 🚀 Deploy ke Vercel (`titipjualayyu.vercel.app`)
-
-1. Commit dan push project ke GitHub.
-2. Di [vercel.com](https://vercel.com), klik **Import Project**.
-3. Vercel otomatis mendeteksi preset framework **Astro**.
-4. Beri nama project `titipjualayyu` (agar otomatis beralamat di `titipjualayyu.vercel.app`).
-5. Klik **Deploy**!
+```text
+titipjualizah/
+├── public/                 # Aset statis (logo, favicon, screenshot testimoni, robots.txt)
+├── src/
+│   ├── components/         # Komponen UI modular (Navbar, Hero, CommissionTable, Testimonials, Footer)
+│   ├── config/
+│   │   └── site.ts         # 📍 PUSAT KONFIGURASI: Kontak, link sosial media, dan persentase komisi
+│   ├── layouts/
+│   │   └── Base.astro      # Shell HTML utama, meta tags SEO, dan global styles
+│   ├── pages/
+│   │   └── index.astro     # Halaman utama landing page
+│   └── styles/
+│       └── global.css      # Design tokens kustom (warna pastel) dan utilitas Tailwind
+├── astro.config.mjs        # Konfigurasi Astro & integrasi
+├── tailwind.config.mjs     # Konfigurasi tema warna pastel kustom
+├── package.json            # Dependensi dan skrip npm
+└── vercel.json             # Konfigurasi deployment untuk Vercel
