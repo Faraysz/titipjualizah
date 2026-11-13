@@ -43,22 +43,12 @@ const waUrl = getWhatsAppUrl();
       
       <!-- Brand & Bio with Official Transparent Logo -->
       <div class="md:col-span-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="h-11 flex items-center justify-center">
-            <Image
-              src={logoImg}
-              alt={`Logo Resmi ${siteConfig.brandName}`}
-              class="h-10 w-auto object-contain drop-shadow-sm"
-            />
-          </div>
-          <div>
-            <span class="font-heading font-bold text-2xl sm:text-3xl text-warmtext-dark block leading-none">
-              {siteConfig.brandName}
-            </span>
-            <span class="text-[10px] font-medium text-rosebrand-600 tracking-wider uppercase block mt-1 font-body">
-              by {siteConfig.ownerName}
-            </span>
-          </div>
+        <div class="flex items-center mb-4">
+          <Image
+            src={logoImg}
+            alt={`Logo Resmi ${siteConfig.brandName}`}
+            class="h-11 sm:h-12 w-auto object-contain"
+          />
         </div>
         <p class="text-warmtext-muted max-w-md leading-relaxed mb-4 font-normal">
           Layanan titip jual khusus barang wanita (baju, celana, tas, jam tangan, sepatu &amp; sandal, hijab, skincare &amp; makeup) oleh <strong>{siteConfig.ownerName}</strong>. Membantu perempuan merapikan lemari dan mencairkan barang preloved secara aman, praktis, dan transparan.

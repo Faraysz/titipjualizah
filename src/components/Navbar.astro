@@ -11,22 +11,14 @@ const waUrl = getWhatsAppUrl();
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between font-body">
     
     <!-- Logo Gambar Transparan Titip Jual Izah -->
-    <a href="/" class="flex items-center gap-2.5 sm:gap-3 group" aria-label={siteConfig.brandName}>
-      <div class="h-10 sm:h-12 flex items-center justify-center transition-transform group-hover:scale-105">
+    <a href="/" class="flex items-center group py-1" aria-label={siteConfig.brandName}>
+      <div class="h-11 sm:h-13 flex items-center justify-center transition-transform group-hover:scale-105">
         <Image
           src={logoImg}
           alt={`Logo Resmi ${siteConfig.brandName}`}
-          class="h-9 sm:h-11 w-auto object-contain drop-shadow-sm"
+          class="h-10 sm:h-12 w-auto object-contain"
           loading="eager"
         />
-      </div>
-      <div class="hidden sm:block">
-        <span class="font-heading font-semibold text-xl sm:text-2xl text-warmtext-dark tracking-tight block leading-none">
-          {siteConfig.brandName}
-        </span>
-        <span class="text-[10px] font-medium text-rosebrand-600 tracking-wider uppercase block mt-0.5 font-body">
-          by {siteConfig.ownerName}
-        </span>
       </div>
     </a>
 
