@@ -5,57 +5,57 @@ import Icon from './Icon.astro';
 const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat titip jual');
 ---
 
-<section id="faq" class="py-16 sm:py-24 bg-cream-50 border-b border-blush-100">
+<section id="faq" class="py-16 sm:py-24 bg-white border-b border-stone-200/70">
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Heading (Cormorant Garamond) -->
-    <div class="text-center mb-14 fade-up-element">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
+    <!-- Section Heading (ALLU Inspired: Minimalist) -->
+    <div class="max-w-2xl mb-14 sm:mb-18 fade-up-element text-center sm:text-left">
+      <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-rosebrand-700 mb-2 font-body">
         Tanya Jawab
-      </span>
-      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
-        Pertanyaan yang Sering Diajukan
+      </p>
+      <h2 class="font-heading font-semibold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-3">
+        Pertanyaan Umum
       </h2>
       <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
-        Penjelasan lengkap seputar 7 kategori barang, syarat kondisi, keamanan, hingga mekanisme pencairan dana.
+        Informasi seputar 7 kategori barang yang diterima, syarat kondisi, keamanan, hingga pencairan dana.
       </p>
     </div>
 
-    <!-- Modern Accordion Cards (DM Sans for Question & Answer) -->
-    <div class="space-y-4 font-body" id="faq-accordion-group">
+    <!-- Minimalist Horizontal Divider Accordion (NO Thick AI Slop Cards) -->
+    <div class="divide-y divide-stone-200/80 font-body border-t border-b border-stone-200/80" id="faq-accordion-group">
       {siteConfig.faqs.map((faq, idx) => (
-        <div class="faq-item fade-up-element bg-white rounded-2xl border border-blush-100 shadow-soft overflow-hidden transition-all duration-200">
+        <div class="faq-item fade-up-element py-5 sm:py-6">
           <button
             type="button"
-            class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-body font-semibold text-sm sm:text-base text-warmtext-dark cursor-pointer select-none focus:outline-none"
+            class="faq-toggle w-full text-left flex items-center justify-between gap-4 font-body font-semibold text-base sm:text-lg text-warmtext-dark cursor-pointer select-none focus:outline-none group"
             aria-expanded={idx === 0 ? "true" : "false"}
           >
-            <span>{faq.question}</span>
-            <span class="faq-chevron w-8 h-8 rounded-full bg-blush-50 text-rosebrand-600 flex items-center justify-center shrink-0 transition-transform duration-300">
-              <Icon name="chevron-down" class="w-4 h-4" />
+            <span class="group-hover:text-rosebrand-600 transition-colors">{faq.question}</span>
+            <span class="faq-chevron text-stone-400 group-hover:text-rosebrand-600 transition-transform duration-300 shrink-0">
+              <Icon name="chevron-down" class="w-5 h-5" />
             </span>
           </button>
           
-          <div class={`faq-content px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-warmtext-muted leading-relaxed border-t border-blush-50 transition-all duration-300 ${idx === 0 ? 'block' : 'hidden'}`}>
+          <div class={`faq-content pt-3 pb-2 text-xs sm:text-sm text-warmtext-muted leading-relaxed transition-all duration-300 ${idx === 0 ? 'block' : 'hidden'}`}>
             {faq.answer}
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Extra WA Contact Prompt (DM Sans) -->
-    <div class="mt-12 text-center fade-up-element font-body">
-      <p class="text-xs sm:text-sm text-warmtext-muted mb-3">
-        Punya pertanyaan lain yang belum terjawab di sini?
-      </p>
+    <!-- Extra WA Contact Prompt -->
+    <div class="mt-12 text-center sm:text-left fade-up-element font-body">
+      <span class="text-xs sm:text-sm text-warmtext-muted mr-2">
+        Ada pertanyaan lain yang belum terjawab?
+      </span>
       <a
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 font-semibold text-rosebrand-700 hover:text-rosebrand-800 text-xs sm:text-sm"
+        class="inline-flex items-center gap-1.5 font-semibold text-rosebrand-600 hover:text-rosebrand-700 text-xs sm:text-sm"
       >
-        <span>Tanyakan langsung ke Kak Izah via WhatsApp</span>
-        <Icon name="arrow-right" class="w-4 h-4 text-rosebrand-600" />
+        <span>Hubungi Kak Izah via WhatsApp</span>
+        <Icon name="arrow-right" class="w-3.5 h-3.5" />
       </a>
     </div>
 
@@ -63,7 +63,7 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
 </section>
 
 <script>
-  // Modern Accordion Logic
+  // Clean Minimalist Accordion Logic
   const faqItems = document.querySelectorAll('.faq-item');
 
   faqItems.forEach((item) => {
@@ -84,7 +84,6 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
           otherToggle?.setAttribute('aria-expanded', 'false');
           otherContent?.classList.add('hidden');
           otherChevron?.classList.remove('rotate-180');
-          other.classList.remove('border-blush-300');
         }
       });
 
@@ -93,12 +92,10 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
         toggle.setAttribute('aria-expanded', 'false');
         content?.classList.add('hidden');
         chevron?.classList.remove('rotate-180');
-        item.classList.remove('border-blush-300');
       } else {
         toggle.setAttribute('aria-expanded', 'true');
         content?.classList.remove('hidden');
         chevron?.classList.add('rotate-180');
-        item.classList.add('border-blush-300');
       }
     });
   });

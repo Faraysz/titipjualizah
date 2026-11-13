@@ -3,13 +3,13 @@ import { Image } from 'astro:assets';
 import { siteConfig } from '../config/site';
 import Icon from './Icon.astro';
 
-// Import gambar barang dari src/assets/barang/
-import barang1 from '../assets/barang/barang-1.svg';
-import barang2 from '../assets/barang/barang-2.svg';
-import barang3 from '../assets/barang/barang-3.svg';
-import barang4 from '../assets/barang/barang-4.svg';
-import barang5 from '../assets/barang/barang-5.svg';
-import barang6 from '../assets/barang/barang-6.svg';
+// Import foto produk preloved asli dari internet/unsplash
+import barang1 from '../assets/barang/barang-1.jpg';
+import barang2 from '../assets/barang/barang-2.jpg';
+import barang3 from '../assets/barang/barang-3.jpg';
+import barang4 from '../assets/barang/barang-4.jpg';
+import barang5 from '../assets/barang/barang-5.jpg';
+import barang6 from '../assets/barang/barang-6.jpg';
 
 const barangImages: Record<string, ImageMetadata> = {
   'barang-1': barang1,
@@ -20,7 +20,7 @@ const barangImages: Record<string, ImageMetadata> = {
   'barang-6': barang6,
 };
 
-// Import screenshot chat asli dari src/assets/testimoni/
+// Import screenshot chat testimoni asli
 import testi1 from '../assets/testimoni/testi-1.jpg';
 import testi2 from '../assets/testimoni/testi-2.jpg';
 
@@ -30,113 +30,101 @@ const testiImages: Record<string, ImageMetadata> = {
 };
 ---
 
-<section id="terjual" class="py-16 sm:py-24 bg-white border-b border-blush-100">
+<section id="terjual" class="py-16 sm:py-24 bg-white border-b border-stone-200/70">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Heading: Galeri Terjual (Cormorant Garamond) -->
-    <div class="text-center max-w-2xl mx-auto mb-14 fade-up-element">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
-        Galeri Transaksi
-      </span>
-      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
+    <!-- Section Heading: Galeri Terjual (Editorial ALLU Style) -->
+    <div class="max-w-2xl mb-12 sm:mb-16 fade-up-element text-center sm:text-left">
+      <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-rosebrand-700 mb-2 font-body">
+        Riwayat Penjualan
+      </p>
+      <h2 class="font-heading font-semibold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-3">
         Contoh Barang yang Pernah Terjual
       </h2>
       <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
-        Beberapa barang titipan cewek-cewek yang berhasil laku cepat dengan harga pasaran terbaik.
+        Koleksi barang titipan yang berhasil laku terjual ke pemilik baru dengan harga pasaran terbaik.
       </p>
     </div>
 
-    <!-- Gallery Grid with Uniform 1:1 Aspect Ratio (DM Sans font-body) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-24 font-body">
+    <!-- Gallery Grid (Editorial Butik Look: Real Photos, No Thick Card Borders) -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-24 font-body">
       {siteConfig.soldGallery.map((item) => {
         const img = barangImages[item.id];
         return (
-          <div class="fade-up-element bg-cream-50 rounded-3xl overflow-hidden border border-blush-100 flex flex-col justify-between group hover:border-blush-300 hover:shadow-soft-hover transition-all duration-300">
-            <div>
-              <!-- Uniform aspect ratio (1:1 square) -->
-              <div class="relative aspect-square overflow-hidden bg-white">
-                {img && (
-                  <Image
-                    src={img}
-                    alt={item.alt}
-                    class="w-full h-full object-cover group-hover:scale-104 transition-transform duration-300"
-                  />
-                )}
-                
-                <span class="absolute top-4 left-4 bg-rosebrand-600 text-white font-bold text-[11px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm font-body">
-                  TERJUAL
-                </span>
-              </div>
-
-              <!-- Item Information -->
-              <div class="p-6">
-                <span class="text-xs font-semibold text-rosebrand-600 block mb-1">
-                  {item.category}
-                </span>
-                <h3 class="font-heading font-bold text-2xl text-warmtext-dark mb-1">
-                  {item.title}
-                </h3>
-                <p class="text-xs text-warmtext-muted mb-2">
-                  {item.condition}
-                </p>
-                <span class="text-[11px] text-warmtext-soft block italic">
-                  {item.caption}
-                </span>
-              </div>
+          <div class="fade-up-element group block">
+            <!-- Product Real Photo Frame -->
+            <div class="aspect-square w-full overflow-hidden rounded-xl bg-stone-100 relative mb-3">
+              {img && (
+                <Image
+                  src={img}
+                  alt={item.alt}
+                  class="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500 ease-out"
+                />
+              )}
+              
+              <!-- Subtle Clean Sold Tag -->
+              <span class="absolute top-3 left-3 bg-warmtext-dark/90 backdrop-blur-sm text-white font-medium text-[10px] sm:text-[11px] uppercase tracking-wider px-2.5 py-0.5 rounded">
+                TERJUAL
+              </span>
             </div>
 
-            <div class="px-6 py-4 bg-white border-t border-blush-100/80 flex items-center justify-between text-xs">
-              <div>
-                <span class="text-[10px] text-warmtext-soft block">Harga Laku:</span>
-                <span class="font-body font-bold text-rosebrand-600 text-sm">{item.priceSold}</span>
-              </div>
-              <span class="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
-                {item.durationSold}
+            <!-- Product Info Under Photo (Clean, Professional) -->
+            <div>
+              <span class="text-[11px] uppercase tracking-wider text-rosebrand-700 font-semibold block mb-0.5">
+                {item.category}
               </span>
+              <h3 class="font-heading font-bold text-lg sm:text-xl text-warmtext-dark leading-snug">
+                {item.title}
+              </h3>
+              <p class="text-xs text-warmtext-muted line-clamp-1 mt-0.5 mb-1.5 font-normal">
+                {item.condition}
+              </p>
+              <div class="flex items-center justify-between text-xs pt-1 border-t border-stone-100">
+                <span class="font-bold text-rosebrand-700 text-sm">{item.priceSold}</span>
+                <span class="text-[11px] text-emerald-700 font-medium">{item.durationSold}</span>
+              </div>
             </div>
           </div>
         );
       })}
     </div>
 
-    <!-- Section Heading: Testimoni Chat WhatsApp Asli (Cormorant Garamond) -->
-    <div id="testimoni" class="text-center max-w-2xl mx-auto mb-14 fade-up-element pt-4">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
-        Testimoni Nyata
-      </span>
-      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
-        Cerita Mereka yang Pernah Titip Jual
+    <!-- Section Heading: Testimoni Asli (Frameless / No AI Card) -->
+    <div id="testimoni" class="max-w-2xl mb-12 sm:mb-16 fade-up-element text-center sm:text-left pt-6 border-t border-stone-200/80">
+      <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-rosebrand-700 mb-2 font-body">
+        Testimoni Penitip
+      </p>
+      <h2 class="font-heading font-semibold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-3">
+        Cerita Nyata dari Teman-Teman Penitip
       </h2>
       <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
-        Tangkapan layar obrolan asli dari teman-teman penitip setelah barangnya berhasil terjual di Titip Jual Izah.
+        Tangkapan layar obrolan asli dan testimoni kepuasan setelah barang berhasil terjual di Titip Jual Izah.
       </p>
     </div>
 
-    <!-- Testimonial Asli Grid (2 Kolom Lebar & Proporsional Sesuai Screenshot Asli) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto font-body">
+    <!-- Testimonial Grid (Natural Story/Chat Presentation: GAK PAKAI CARD) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14 max-w-4xl mx-auto font-body">
       {siteConfig.testimonials.map((testi) => {
         const img = testiImages[testi.id];
         return (
-          <div class="fade-up-element flex flex-col items-center">
-            <!-- Frame Story / Chat Asli -->
-            <div class="w-full rounded-3xl overflow-hidden bg-white border border-blush-200 shadow-soft p-3 hover:shadow-soft-hover transition-all">
-              <div class="rounded-2xl overflow-hidden bg-cream-50 relative aspect-[9/16] max-h-[580px]">
-                {img && (
-                  <Image
-                    src={img}
-                    alt={testi.alt}
-                    class="w-full h-full object-cover object-top"
-                  />
-                )}
-              </div>
+          <div class="fade-up-element flex flex-col items-center sm:items-start">
+            <!-- Natural Story Image (No Nested Card Frame, Clean Minimal Shadow) -->
+            <div class="w-full max-w-[360px] mx-auto overflow-hidden rounded-2xl shadow-sm border border-stone-200/80 aspect-[9/16] bg-stone-100 mb-4">
+              {img && (
+                <Image
+                  src={img}
+                  alt={testi.alt}
+                  class="w-full h-full object-cover object-top"
+                />
+              )}
             </div>
 
-            <!-- Customer Caption -->
-            <div class="mt-4 text-center max-w-sm">
-              <h4 class="font-heading font-bold text-warmtext-dark text-xl sm:text-2xl">
+            <!-- Customer Notes (Clean Typography, No Card Wrapping) -->
+            <div class="text-center sm:text-left w-full max-w-[360px] mx-auto px-1">
+              <h4 class="font-heading font-bold text-xl text-warmtext-dark">
                 {testi.senderName}
               </h4>
-              <p class="text-xs text-rosebrand-600 font-medium mt-0.5">
+              <p class="text-xs text-rosebrand-600 font-medium">
                 {testi.itemSold}
               </p>
               <p class="text-xs text-warmtext-muted mt-2 italic leading-relaxed">

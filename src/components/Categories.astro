@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { siteConfig, getCategoryWhatsAppUrl, getWhatsAppUrl } from '../config/site';
 import Icon from './Icon.astro';
 
-// Import 7 foto kategori resmi
+// Import 7 foto fashion asli
 import fotoBaju from '../assets/kategori/baju.jpg';
 import fotoCelana from '../assets/kategori/celana.jpg';
 import fotoTas from '../assets/kategori/tas.jpg';
@@ -25,24 +25,24 @@ const categoryImages: Record<string, ImageMetadata> = {
 const waOtherUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya titip jual barang lainnya yang belum ada di daftar');
 ---
 
-<section id="kategori" class="py-16 sm:py-24 bg-white border-b border-blush-100">
+<section id="kategori" class="py-16 sm:py-24 bg-white border-b border-stone-200/70">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Heading (Allu Inspired: Clean & Trustworthy) -->
-    <div class="text-center max-w-2xl mx-auto mb-14 fade-up-element">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block">
-        Koleksi Pilihan
-      </span>
-      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
-        Kategori Barang yang Diterima
+    <!-- Section Heading (ALLU Inspired: Minimalist, Bold & Clean) -->
+    <div class="max-w-2xl mb-12 sm:mb-16 fade-up-element text-center sm:text-left">
+      <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-rosebrand-700 mb-2 font-body">
+        Barang yang Diterima
+      </p>
+      <h2 class="font-heading font-semibold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-3">
+        7 Kategori Barang Pilihan
       </h2>
-      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed">
-        Pilih kategori barang yang ingin kamu titipkan. Klik kartu untuk langsung konsultasi dan kirim foto barang via WhatsApp.
+      <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
+        Pilih kategori barang preloved yang ingin kamu jual. Klik foto untuk langsung terhubung ke WhatsApp Kak Izah.
       </p>
     </div>
 
-    <!-- Category Photo Grid (2 Kolom Mobile, 4 Kolom Desktop - Total 8 Kartu Rapi Simetris) -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
+    <!-- Category Grid (ALLU Style: Real Product Photos, No Thick Card Nesting) -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 mb-20 font-body">
       {siteConfig.categories.map((cat, idx) => {
         const img = categoryImages[cat.slug];
         const waCatUrl = getCategoryWhatsAppUrl(cat.nama);
@@ -51,110 +51,94 @@ const waOtherUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya titip jual bara
             href={waCatUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="fade-up-element group bg-cream-50 rounded-3xl overflow-hidden border border-blush-100/90 hover:border-blush-300 hover:shadow-soft-hover transition-all duration-300 flex flex-col justify-between"
+            class="fade-up-element group block"
           >
-            <!-- Uniform Photo Card -->
-            <div>
-              <div class="aspect-square w-full overflow-hidden bg-white relative">
-                {img && (
-                  <Image
-                    src={img}
-                    alt={cat.alt}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                )}
-                
-                <!-- Discrete Category Number (Allu Style) -->
-                <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-warmtext-dark font-medium text-[11px] px-2.5 py-0.5 rounded-full border border-blush-100 shadow-sm">
-                  0{idx + 1}
-                </span>
-
-                <!-- Subtle WA Action Arrow on Hover -->
-                <span class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-rosebrand-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
-                  <Icon name="arrow-right" class="w-4 h-4 text-white" />
-                </span>
-              </div>
-
-              <!-- Category Details (DM Sans) -->
-              <div class="p-4 sm:p-5">
-                <h3 class="font-heading font-bold text-xl sm:text-2xl text-warmtext-dark mb-1 group-hover:text-rosebrand-600 transition-colors">
-                  {cat.nama}
-                </h3>
-                <p class="text-xs text-warmtext-muted line-clamp-2 leading-relaxed">
-                  {cat.sub}
-                </p>
-              </div>
+            <!-- Real Editorial Photo Frame -->
+            <div class="aspect-[4/5] w-full overflow-hidden rounded-xl bg-stone-100 relative mb-3.5">
+              {img && (
+                <Image
+                  src={img}
+                  alt={cat.alt}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+              )}
+              
+              <!-- Clean Minimal Index -->
+              <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-warmtext-dark text-[11px] font-medium px-2.5 py-0.5 rounded-full">
+                0{idx + 1}
+              </span>
             </div>
 
-            <!-- Card Action Footer -->
-            <div class="px-4 py-3 bg-white/80 border-t border-blush-100/70 flex items-center justify-between text-[11px] font-semibold text-rosebrand-600">
-              <span>Titip {cat.nama}</span>
-              <Icon name="message-circle" class="w-3.5 h-3.5" />
+            <!-- Typography & Action (Under the Photo, Clean & Elegant) -->
+            <div>
+              <h3 class="font-heading font-bold text-xl sm:text-2xl text-warmtext-dark group-hover:text-rosebrand-600 transition-colors leading-snug">
+                {cat.nama}
+              </h3>
+              <p class="text-xs text-warmtext-muted line-clamp-1 mt-0.5 mb-2 font-normal">
+                {cat.sub}
+              </p>
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-rosebrand-600 group-hover:translate-x-1 transition-transform">
+                <span>Titip {cat.nama}</span>
+                <Icon name="arrow-right" class="w-3.5 h-3.5" />
+              </span>
             </div>
           </a>
         );
       })}
 
-      <!-- 8th Card: Penutup Simetris "Lainnya? Tanya dulu lewat WhatsApp" -->
+      <!-- 8th Slot: Penutup Rapi Simetris (No Nested Card Bloat) -->
       <a
         href={waOtherUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="fade-up-element group bg-gradient-to-br from-cream-100 to-blush-50 rounded-3xl p-6 border-2 border-dashed border-blush-200 hover:border-rosebrand-500 hover:shadow-soft-hover transition-all duration-300 flex flex-col justify-between text-center"
+        class="fade-up-element group block border border-dashed border-stone-300 hover:border-rosebrand-600 rounded-xl p-5 sm:p-6 bg-cream-50 flex flex-col justify-between transition-colors text-center sm:text-left"
       >
-        <div class="my-auto py-4">
-          <div class="w-12 h-12 rounded-2xl bg-white border border-blush-200 text-rosebrand-600 mx-auto flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm">
-            <Icon name="sparkles" class="w-6 h-6 text-rosebrand-600" />
-          </div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-rosebrand-600 block mb-1">
-            Kategori Lainnya?
+        <div class="my-auto py-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-rosebrand-600 block mb-2">
+            Punya Barang Lain?
           </span>
           <h3 class="font-heading font-bold text-2xl text-warmtext-dark mb-2">
             Tanya Dulu ke Kak Izah
           </h3>
-          <p class="text-xs text-warmtext-muted max-w-[200px] mx-auto leading-relaxed">
-            Punya barang preloved wanita di luar 7 kategori ini? Konsultasikan dulu lewat WhatsApp.
+          <p class="text-xs text-warmtext-muted leading-relaxed mb-4">
+            Punya barang wanita di luar 7 kategori ini? Konsultasikan dulu lewat WhatsApp untuk cek kelayakan barangmu.
           </p>
         </div>
 
-        <div class="w-full py-2.5 rounded-full bg-rosebrand-600 group-hover:bg-rosebrand-700 text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-btn transition-colors">
-          <Icon name="message-circle" class="w-4 h-4 text-white" />
-          <span>Chat via WhatsApp</span>
-        </div>
+        <span class="inline-flex items-center justify-center sm:justify-start gap-1.5 text-xs font-semibold text-rosebrand-600 group-hover:text-rosebrand-700">
+          <span>Chat WhatsApp Sekarang</span>
+          <Icon name="arrow-right" class="w-3.5 h-3.5" />
+        </span>
       </a>
     </div>
 
-    <!-- Guideline Box: Diterima vs Tidak Diterima (Allu-inspired Comparison) -->
-    <div class="fade-up-element bg-cream-50 rounded-3xl p-6 sm:p-8 border border-blush-200">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Guideline Section (ALLU Style: Clean Minimalist Two-Column List, No Card Box) -->
+    <div class="fade-up-element pt-12 border-t border-stone-200/80 font-body">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
         
-        <!-- Criteria Accepted -->
+        <!-- Accepted -->
         <div>
-          <div class="flex items-center gap-2.5 mb-3 text-emerald-700 font-semibold text-sm">
-            <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
-              <Icon name="check" class="w-3.5 h-3.5" />
-            </div>
-            <span>Syarat Barang yang Diterima</span>
+          <div class="flex items-center gap-2 mb-3 text-warmtext-dark font-semibold text-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Standar Kondisi Barang yang Diterima</span>
           </div>
-          <ul class="text-xs sm:text-sm text-warmtext-muted space-y-2 pl-8 list-disc">
+          <ul class="text-xs sm:text-sm text-warmtext-muted space-y-2 pl-4 border-l-2 border-emerald-500/40">
             <li>100% Produk Original / Asli (kami tidak menerima barang tiruan).</li>
             <li>Kondisi mulus, bersih, layak pakai, dan terawat (Like New / Preloved bagus).</li>
-            <li>Kelengkapan asli bila ada (box, dustbag, kartu nota) bernilai jual lebih tinggi.</li>
-            <li>Khusus skincare dan makeup: <strong class="text-rosebrand-700">Wajib baru &amp; bersegel resmi [GANTI syarat kondisi]</strong>.</li>
+            <li>Kelengkapan asli bila ada (box, dustbag, nota) bernilai jual lebih tinggi.</li>
+            <li>Khusus skincare dan makeup: <strong class="text-warmtext-dark">Wajib baru &amp; bersegel resmi [GANTI syarat kondisi]</strong>.</li>
           </ul>
         </div>
 
-        <!-- Criteria Rejected -->
+        <!-- Rejected -->
         <div>
-          <div class="flex items-center gap-2.5 mb-3 text-rosebrand-700 font-semibold text-sm">
-            <div class="w-6 h-6 rounded-full bg-blush-100 flex items-center justify-center text-rosebrand-700 shrink-0">
-              <Icon name="x" class="w-3.5 h-3.5" />
-            </div>
-            <span>Barang yang TIDAK Diterima</span>
+          <div class="flex items-center gap-2 mb-3 text-warmtext-dark font-semibold text-sm">
+            <span class="w-2 h-2 rounded-full bg-rosebrand-600"></span>
+            <span>Barang yang Tidak Diterima</span>
           </div>
-          <ul class="text-xs sm:text-sm text-warmtext-muted space-y-2 pl-8 list-disc">
-            <li>Barang tiruan, KW, replika grade super / 1:1.</li>
-            <li>Pakaian dengan noda permanen, sobek parah, atau bau tidak sedap.</li>
+          <ul class="text-xs sm:text-sm text-warmtext-muted space-y-2 pl-4 border-l-2 border-rosebrand-600/40">
+            <li>Barang tiruan, palsu, KW, replika grade super / 1:1.</li>
+            <li>Pakaian dengan noda permanen, robek parah, atau bau tidak sedap.</li>
             <li>Kosmetik atau skincare yang sudah pernah dibuka atau bekas pakai.</li>
             <li>Barang yang sudah kedaluwarsa atau hilang nomor batch/BPOM-nya.</li>
           </ul>

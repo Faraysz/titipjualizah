@@ -1,72 +1,107 @@
 ---
 import Icon from './Icon.astro';
+import { getWhatsAppUrl } from '../config/site';
 
-const benefits = [
+const waUrl = getWhatsAppUrl();
+
+const comparisons = [
   {
-    title: 'Gak Perlu Repot Foto & Edit Cantik',
-    desc: 'Kamu gak usah sewa studio atau pusing lighting. Kirimkan foto apa adanya, Kak Izah bantu poles visual dan deskripsi agar rapi dan meyakinkan pembeli.',
-    icon: 'camera' as const,
+    feature: 'Foto & Konten Estetik',
+    self: 'Harus foto sendiri, sewa lighting, edit deskripsi',
+    izah: 'Foto dirapikan & dipoles estetik oleh Kak Izah',
   },
   {
-    title: 'Bebas Drama Balas Ratusan Chat & Nego Sadis',
-    desc: 'Capek menghadapi orang yang cuma tanya-tanya, nawar separuh harga, lalu hilang tanpa kabar? Biar Kak Izah yang hadapi negosiasi dengan tegas dan ramah.',
-    icon: 'message-circle' as const,
+    feature: 'Komunikasi Calon Pembeli',
+    self: 'Ladenin puluhan chat tanya-tanya & nego sadis',
+    izah: 'Semua negosiasi & chat ditangani ramah & tegas',
   },
   {
-    title: 'Tanpa Ribet Packing & Ekspedisi',
-    desc: 'Gak perlu beli bubble wrap berkilo-kilo atau keluar rumah panas-panasan kirim barang. Pengemasan dan pengiriman kami bantu tangani secara aman.',
-    icon: 'truck' as const,
+    feature: 'Packing & Kirim Ekspedisi',
+    self: 'Repot beli bubble wrap tebal & antre kurir/COD',
+    izah: 'Pengemasan rapi dan logistik diurus sampai tujuan',
   },
   {
-    title: 'Skema Komisi Terbuka Tanpa Potongan Siluman',
-    desc: 'Semua persentase komisi disepakati bersama sejak awal sebelum barang dipromosikan. Tidak ada biaya pendaftaran atau denda bila barang belum laku.',
-    icon: 'tag' as const,
+    feature: 'Kejelasan Komisi',
+    self: 'Bisa tertipu pembeli palsu / cancel sepihak',
+    izah: 'Komisi transparan, dana langsung cair ke rekening',
   },
   {
-    title: 'Amanah & Privasi Penitip Terjaga',
-    desc: 'Bisa 100% anonim. Akun pribadi atau kontak kamu tidak akan dipublikasikan ke pembeli. Dana penjualan langsung masuk ke rekening pribadi kamu.',
-    icon: 'shield-check' as const,
+    feature: 'Privasi & Keamanan Data',
+    self: 'Nomor dan akun pribadi tersebar ke publik',
+    izah: 'Identitas penitip 100% aman dan bisa anonim',
   },
   {
-    title: 'Pasar Terfokus Sesama Cewek',
-    desc: 'Katalog dipromosikan langsung ke jaringan dan audiens wanita yang memang aktif mencari baju, tas, sepatu, hijab, dan preloved original.',
-    icon: 'user-check' as const,
+    feature: 'Target Jangkauan Pembeli',
+    self: 'Terbatas hanya ke follower atau teman sekitar',
+    izah: 'Terfokus ke audiens wanita pencari preloved original',
   },
 ];
 ---
 
-<section id="keuntungan" class="py-16 sm:py-24 bg-cream-50 border-b border-blush-100">
+<section id="keuntungan" class="py-16 sm:py-24 bg-white border-b border-stone-200/70">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Section Header (Cormorant Garamond) -->
-    <div class="max-w-2xl mb-14 text-center sm:text-left fade-up-element">
-      <span class="text-rosebrand-600 font-semibold text-xs tracking-widest uppercase mb-2 block font-body">
-        Kenapa Titip Jual?
-      </span>
-      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-4">
-        Keuntungan Titip Barang ke Kak Izah
+    <!-- Section Heading (ALLU Inspired: Minimalist Editorial) -->
+    <div class="max-w-2xl mb-14 sm:mb-18 fade-up-element text-center sm:text-left">
+      <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-rosebrand-700 mb-2 font-body">
+        Keuntungan Titip Jual
+      </p>
+      <h2 class="font-heading font-semibold text-3xl sm:text-5xl text-warmtext-dark tracking-tight mb-3">
+        Kenapa Lebih Untung Titip ke Izah?
       </h2>
       <p class="text-warmtext-muted text-sm sm:text-base leading-relaxed font-body">
-        Jual barang preloved sendiri seringkali melelahkan dan menyita waktu. Titipkan ke Izah, kamu tinggal terima bersih hasilnya.
+        Perbandingan praktis antara menjual barang preloved sendiri vs menitipkannya ke Titip Jual Izah.
       </p>
     </div>
 
-    <!-- Cards Grid (DM Sans for body details) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-body">
-      {benefits.map((item) => (
-        <div class="fade-up-element bg-white rounded-3xl p-7 border border-blush-100/90 shadow-soft hover:shadow-soft-hover transition-all">
-          <div class="w-11 h-11 rounded-2xl bg-blush-50 border border-blush-200/60 flex items-center justify-center text-rosebrand-600 mb-5">
-            <Icon name={item.icon} class="w-5 h-5 text-rosebrand-600" />
-          </div>
+    <!-- Comparison Table (ALLU Style: Clean Architectural Table, NO AI Slop Cards) -->
+    <div class="fade-up-element overflow-x-auto font-body">
+      <table class="w-full text-left border-collapse min-w-[580px]">
+        <thead>
+          <tr class="border-b-2 border-stone-800 text-xs sm:text-sm uppercase tracking-wider text-warmtext-dark">
+            <th class="py-4 px-3 sm:px-5 w-1/3 font-semibold">Proses Penjualan</th>
+            <th class="py-4 px-3 sm:px-5 w-1/3 text-stone-400 font-normal">Jual Sendiri di Medsos</th>
+            <th class="py-4 px-3 sm:px-5 w-1/3 bg-cream-100/70 font-semibold text-rosebrand-700 border-l border-r border-t border-rosebrand-200">
+              Titip Jual Izah
+            </th>
+          </tr>
+        </thead>
+        <tbody class="text-xs sm:text-sm divide-y divide-stone-200/70">
+          {comparisons.map((row) => (
+            <tr class="hover:bg-cream-50/50 transition-colors">
+              <td class="py-4 px-3 sm:px-5 font-semibold text-warmtext-dark">
+                {row.feature}
+              </td>
+              <td class="py-4 px-3 sm:px-5 text-stone-500">
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="text-stone-400">✕</span>
+                  <span>{row.self}</span>
+                </span>
+              </td>
+              <td class="py-4 px-3 sm:px-5 bg-cream-100/40 text-warmtext-dark font-medium border-l border-r border-rosebrand-200/50">
+                <span class="inline-flex items-center gap-1.5 text-warmtext-dark">
+                  <Icon name="check" class="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>{row.izah}</span>
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
 
-          <h3 class="font-heading font-bold text-2xl text-warmtext-dark mb-2.5">
-            {item.title}
-          </h3>
-          <p class="text-xs sm:text-sm text-warmtext-muted leading-relaxed">
-            {item.desc}
-          </p>
-        </div>
-      ))}
+    <!-- Bottom Action Note -->
+    <div class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-stone-200/80 font-body text-xs sm:text-sm text-warmtext-muted fade-up-element">
+      <span>Kamu tinggal siapkan barang di lemari, biar Kak Izah yang urus sampai uang cair.</span>
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-semibold text-rosebrand-600 hover:text-rosebrand-700 inline-flex items-center gap-1.5"
+      >
+        <span>Mulai Titip Sekarang</span>
+        <Icon name="arrow-right" class="w-4 h-4" />
+      </a>
     </div>
 
   </div>

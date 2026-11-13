@@ -7,19 +7,19 @@ import logoImg from '../assets/logo.jpg';
 const waUrl = getWhatsAppUrl();
 ---
 
-<!-- Final Action Banner (Cormorant Garamond Heading + DM Sans CTA) -->
-<section class="py-16 sm:py-24 bg-rosebrand-600 text-white relative overflow-hidden">
+<!-- Final Action Banner (Editorial Clean Look, Cormorant Garamond) -->
+<section class="py-20 sm:py-28 bg-rosebrand-600 text-white relative overflow-hidden">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10 fade-up-element font-body">
-    <span class="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white text-xs font-semibold tracking-wider uppercase mb-5 backdrop-blur-sm">
+    <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-blush-200 mb-3">
       Mulai Sekarang
-    </span>
+    </p>
     
-    <h2 class="font-heading font-bold text-4xl sm:text-6xl tracking-tight mb-6 text-white leading-[1.12]">
-      Lemari Penuh? Saatnya Decluttering &amp; Jadi Cuan Bersama Izah!
+    <h2 class="font-heading font-semibold text-4xl sm:text-6xl tracking-tight mb-6 text-white leading-[1.08]">
+      Lemari Penuh? Saatnya Decluttering &amp; Jadi Cuan Bersama Izah.
     </h2>
     
-    <p class="text-blush-100 text-sm sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-      Kirimkan foto baju, tas, sepatu, hijab, atau skincare yang ingin kamu titipkan sekarang. Kak Izah siap bantu urus sampai laku ke pemilik baru.
+    <p class="text-blush-100 text-sm sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed font-normal">
+      Kirimkan foto baju, tas, sepatu, hijab, atau skincare yang ingin kamu jual. Kak Izah siap bantu urus sampai laku ke pemilik baru.
     </p>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -27,24 +27,24 @@ const waUrl = getWhatsAppUrl();
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full sm:w-auto px-9 py-4 rounded-full text-base font-semibold bg-white text-rosebrand-600 hover:bg-cream-50 shadow-btn hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-3 font-body"
+        class="w-full sm:w-auto px-10 py-4 rounded-full text-base font-semibold bg-white text-rosebrand-700 hover:bg-cream-50 shadow-sm hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-3 font-body tracking-wide"
       >
-        <Icon name="message-circle" class="w-5 h-5 text-rosebrand-600" />
+        <Icon name="message-circle" class="w-5 h-5 text-rosebrand-700" />
         <span>Chat WhatsApp Kak Izah Sekarang</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- Main Footer (DM Sans) -->
-<footer class="bg-warmtext-dark text-warmtext-soft py-14 sm:py-16 border-t border-stone-800 font-body">
+<!-- Main Footer (Minimalist Architectural Layout ala ALLU) -->
+<footer class="bg-warmtext-dark text-stone-400 py-16 sm:py-20 border-t border-stone-800 font-body text-xs sm:text-sm">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 mb-14">
       
       <!-- Brand & Bio with Official Logo -->
       <div class="md:col-span-6">
         <div class="flex items-center gap-3 mb-4">
-          <div class="h-10 w-10 rounded-2xl overflow-hidden border border-blush-200/50 bg-white shrink-0">
+          <div class="h-10 w-10 rounded-2xl overflow-hidden border border-stone-700 bg-white shrink-0">
             <Image
               src={logoImg}
               alt={`Logo Resmi ${siteConfig.brandName}`}
@@ -55,20 +55,20 @@ const waUrl = getWhatsAppUrl();
             {siteConfig.brandName}
           </span>
         </div>
-        <p class="text-xs sm:text-sm text-stone-400 max-w-md leading-relaxed mb-4">
-          Layanan titip jual khusus barang wanita (baju, celana, tas, jam tangan, sepatu &amp; sandal, hijab, skincare &amp; makeup) oleh <strong>{siteConfig.ownerName}</strong>. Membantu cewek-cewek merapikan lemari dan mencairkan barang preloved secara aman, praktis, dan transparan.
+        <p class="text-stone-400 max-w-md leading-relaxed mb-4 font-normal">
+          Layanan titip jual khusus barang wanita (baju, celana, tas, jam tangan, sepatu &amp; sandal, hijab, skincare &amp; makeup) oleh <strong>{siteConfig.ownerName}</strong>. Membantu perempuan merapikan lemari dan mencairkan barang preloved secara aman, praktis, dan transparan.
         </p>
         <p class="text-xs text-stone-500">
-          Semua konsultasi dan transaksi resmi dilakukan via WhatsApp.
+          Semua transaksi dan konsultasi resmi dilakukan via WhatsApp.
         </p>
       </div>
 
       <!-- Quick Nav Links -->
       <div class="md:col-span-3">
-        <h4 class="font-heading font-bold text-lg text-white uppercase tracking-wider mb-4">
+        <h4 class="font-body font-semibold text-xs text-white uppercase tracking-wider mb-4">
           Navigasi Halaman
         </h4>
-        <ul class="space-y-2 text-xs sm:text-sm">
+        <ul class="space-y-2.5">
           <li><a href="#cara-kerja" class="text-stone-400 hover:text-white transition-colors">Cara Kerja</a></li>
           <li><a href="#keuntungan" class="text-stone-400 hover:text-white transition-colors">Keuntungan</a></li>
           <li><a href="#kategori" class="text-stone-400 hover:text-white transition-colors">7 Kategori Barang</a></li>
@@ -81,10 +81,10 @@ const waUrl = getWhatsAppUrl();
 
       <!-- Official Contact -->
       <div class="md:col-span-3">
-        <h4 class="font-heading font-bold text-lg text-white uppercase tracking-wider mb-4">
+        <h4 class="font-body font-semibold text-xs text-white uppercase tracking-wider mb-4">
           Kontak Resmi
         </h4>
-        <ul class="space-y-3 text-xs sm:text-sm">
+        <ul class="space-y-3">
           <li>
             <a
               href={waUrl}
@@ -107,8 +107,8 @@ const waUrl = getWhatsAppUrl();
               <span>Instagram: {siteConfig.instagramHandle}</span>
             </a>
           </li>
-          <li class="flex items-center gap-2 text-stone-400 text-xs">
-            <Icon name="truck" class="w-4 h-4 text-stone-400 shrink-0" />
+          <li class="flex items-center gap-2 text-stone-500 text-xs pt-1">
+            <Icon name="truck" class="w-4 h-4 text-stone-500 shrink-0" />
             <span>Pengiriman aman seluruh Indonesia</span>
           </li>
         </ul>
