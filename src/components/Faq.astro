@@ -9,7 +9,7 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
     
     <!-- Section Heading (ALLU Inspired: Minimalist) -->
-    <div class="max-w-2xl mb-14 sm:mb-18 fade-up-element text-center sm:text-left">
+    <div class="max-w-2xl mb-12 sm:mb-16 fade-up-element text-center sm:text-left">
       <p class="text-xs sm:text-sm font-medium tracking-widest uppercase text-rosebrand-700 mb-2 font-body">
         Tanya Jawab
       </p>
@@ -21,23 +21,28 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
       </p>
     </div>
 
-    <!-- Minimalist Horizontal Divider Accordion (NO Thick AI Slop Cards) -->
+    <!-- Minimalist Horizontal Divider Accordion with Smooth CSS Grid Animation -->
     <div class="divide-y divide-stone-200/80 font-body border-t border-b border-stone-200/80" id="faq-accordion-group">
       {siteConfig.faqs.map((faq, idx) => (
-        <div class="faq-item fade-up-element py-5 sm:py-6">
+        <div class={`faq-item py-4 sm:py-5 transition-colors ${idx === 0 ? 'is-open' : ''}`}>
           <button
             type="button"
-            class="faq-toggle w-full text-left flex items-center justify-between gap-4 font-body font-semibold text-base sm:text-lg text-warmtext-dark cursor-pointer select-none focus:outline-none group"
+            class="faq-toggle w-full text-left flex items-center justify-between gap-4 font-body font-semibold text-base sm:text-lg text-warmtext-dark cursor-pointer select-none focus:outline-none group py-1"
             aria-expanded={idx === 0 ? "true" : "false"}
           >
-            <span class="group-hover:text-rosebrand-600 transition-colors">{faq.question}</span>
+            <span class="group-hover:text-rosebrand-600 transition-colors leading-snug">{faq.question}</span>
             <span class="faq-chevron text-stone-400 group-hover:text-rosebrand-600 transition-transform duration-300 shrink-0">
               <Icon name="chevron-down" class="w-5 h-5" />
             </span>
           </button>
           
-          <div class={`faq-content pt-3 pb-2 text-xs sm:text-sm text-warmtext-muted leading-relaxed transition-all duration-300 ${idx === 0 ? 'block' : 'hidden'}`}>
-            {faq.answer}
+          <!-- Smooth Animated Content Wrapper -->
+          <div class="faq-content-wrapper">
+            <div class="faq-content-inner">
+              <p class="pt-3 pb-2 text-xs sm:text-sm text-warmtext-muted leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
           </div>
         </div>
       ))}
@@ -62,40 +67,67 @@ const waUrl = getWhatsAppUrl('Halo Kak Izah, saya mau tanya-tanya seputar syarat
   </div>
 </section>
 
+<style>
+  /* Smooth Slide Down / Slide Up Animation using CSS Grid */
+  .faq-content-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+
+  .faq-content-inner {
+    overflow: hidden;
+  }
+
+  .faq-item.is-open .faq-content-wrapper {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .faq-chevron {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-item.is-open .faq-chevron {
+    transform: rotate(180deg);
+    color: #e11d48;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-content-wrapper,
+    .faq-chevron {
+      transition: none !important;
+    }
+  }
+</style>
+
 <script>
-  // Clean Minimalist Accordion Logic
+  // Smooth Accordion Logic with Single Open / Toggle
   const faqItems = document.querySelectorAll('.faq-item');
 
   faqItems.forEach((item) => {
     const toggle = item.querySelector('.faq-toggle');
-    const content = item.querySelector('.faq-content');
-    const chevron = item.querySelector('.faq-chevron');
 
     toggle?.addEventListener('click', () => {
-      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      const isOpen = item.classList.contains('is-open');
 
-      // Tutup item lain
+      // Tutup semua FAQ lain dengan animasi mulus
       faqItems.forEach((other) => {
-        if (other !== item) {
+        if (other !== item && other.classList.contains('is-open')) {
+          other.classList.remove('is-open');
           const otherToggle = other.querySelector('.faq-toggle');
-          const otherContent = other.querySelector('.faq-content');
-          const otherChevron = other.querySelector('.faq-chevron');
-
           otherToggle?.setAttribute('aria-expanded', 'false');
-          otherContent?.classList.add('hidden');
-          otherChevron?.classList.remove('rotate-180');
         }
       });
 
       // Toggle item ini
-      if (isExpanded) {
+      if (isOpen) {
+        item.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
-        content?.classList.add('hidden');
-        chevron?.classList.remove('rotate-180');
       } else {
+        item.classList.add('is-open');
         toggle.setAttribute('aria-expanded', 'true');
-        content?.classList.remove('hidden');
-        chevron?.classList.add('rotate-180');
       }
     });
   });
