@@ -19,7 +19,14 @@ const {
   ogImage = '/og-image.jpg',
 } = Astro.props;
 
-const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+// Resolusi Base URL yang akurat: prioritas Vercel env, Astro.site, atau siteConfig.siteUrl
+const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL 
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
+
+const effectiveBaseUrl = productionHost || (Astro.site ? Astro.site.toString() : siteConfig.siteUrl);
+const canonicalUrl = new URL(Astro.url.pathname, effectiveBaseUrl).toString();
+const fullOgImageUrl = new URL(ogImage, effectiveBaseUrl).toString();
 ---
 
 <!doctype html>
@@ -36,22 +43,31 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     <meta name="author" content={siteConfig.ownerName} />
     <link rel="canonical" href={canonicalUrl} />
 
-    <!-- Favicon -->
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo.png" />
 
     <!-- Open Graph / WhatsApp / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteConfig.brandName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, siteConfig.siteUrl).toString()} />
+    <meta property="og:image" content={fullOgImageUrl} />
+    <meta property="og:image:secure_url" content={fullOgImageUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${siteConfig.brandName} - Titip Jual Barang Cewek oleh ${siteConfig.ownerName}`} />
 
     <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalUrl} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(ogImage, siteConfig.siteUrl).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImageUrl} />
+    <meta name="twitter:image:alt" content={`${siteConfig.brandName} - Preview`} />
 
     <style is:global>
       /* CSS Variables untuk Fontsource */

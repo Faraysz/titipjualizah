@@ -58,7 +58,7 @@ export const siteConfig = {
   ownerName: 'Kak Izah',
   tagline: 'Titip jual barang cewekmu, biar Izah yang urus sampai laku',
   description: 'Layanan titip jual barang cewek terpercaya oleh Kak Izah: baju, tas, sepatu, hijab, sampai skincare. Praktis tanpa ribet foto ulang, balas ratusan chat, atau COD.',
-  siteUrl: 'https://titipjualayyu.vercel.app',
+  siteUrl: 'https://titipjualizah.vercel.app',
 
   // ==========================================
   // 2. KONTAK & WHATSAPP RESMI
