@@ -56,7 +56,7 @@ export const siteConfig = {
   // ==========================================
   brandName: 'Titip Jual Izah',
   ownerName: 'Kak Izah',
-  tagline: 'Titip jual barang cewekmu, biar Izah yang urus sampai laku',
+  tagline: 'Lemari Penuh Jadi Uang? Biar Izah yang Urus Sampai Laku!',
   description: 'Layanan titip jual barang cewek terpercaya oleh Kak Izah: baju, tas, sepatu, hijab, sampai skincare. Praktis tanpa ribet foto ulang, balas ratusan chat, atau COD.',
   siteUrl: 'https://titipjualizah.vercel.app',
 
