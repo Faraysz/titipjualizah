@@ -7,32 +7,32 @@ const waUrl = getWhatsAppUrl();
 
 <div
   id="wa-floating-container"
-  class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-end flex-col gap-2 transition-all duration-300"
+  class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2 transition-all duration-300"
 >
   
-  <!-- Pop-in Tooltip Bubble (Ramping & Halus) -->
+  <!-- Pop-in Tooltip Bubble (Mungil, Sejajar di Kiri Tombol, Tidak Menutupi Teks Konten) -->
   <div
     id="wa-floating-bubble"
-    class="bg-white text-warmtext-dark text-[11px] font-medium py-1.5 px-3 rounded-2xl shadow-soft border border-blush-200 flex items-center gap-1.5 max-w-[190px] opacity-0 translate-y-2 pointer-events-none transition-all duration-300 font-body"
+    class="bg-white/95 backdrop-blur-sm text-warmtext-dark text-[10px] font-medium py-1 px-2.5 rounded-full shadow-soft border border-blush-200 flex items-center gap-1.5 opacity-0 translate-x-2 pointer-events-none transition-all duration-300 font-body shrink-0"
   >
-    <span>Mau titip barang? Chat yuk!</span>
+    <span>Chat Kak Izah yuk!</span>
     <button
       type="button"
       id="close-wa-bubble"
       aria-label="Tutup sapaan"
-      class="text-warmtext-soft hover:text-warmtext-dark text-xs font-bold ml-1 focus:outline-none"
+      class="text-warmtext-soft hover:text-warmtext-dark text-xs font-bold focus:outline-none leading-none px-0.5"
     >
       &times;
     </button>
   </div>
 
-  <!-- Floating WhatsApp Button (Ramping, Clean & Elegan ala Allu) -->
+  <!-- Floating WhatsApp Button (Ramping, Clean & Elegan) -->
   <a
     href={waUrl}
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Chat WhatsApp Kak Izah"
-    class="wa-float-btn w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white bg-[#25d366] hover:bg-[#20ba5a] shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all"
+    class="wa-float-btn w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white bg-[#25d366] hover:bg-[#20ba5a] shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all shrink-0"
   >
     <Icon name="message-circle" class="w-5 h-5 sm:w-6 sm:h-6 text-white" />
   </a>
@@ -65,24 +65,45 @@ const waUrl = getWhatsAppUrl();
 </style>
 
 <script>
-  // Show bubble smoothly after 3 seconds
-  setTimeout(() => {
-    const bubble = document.getElementById('wa-floating-bubble');
+  const bubble = document.getElementById('wa-floating-bubble');
+  let bubbleShown = false;
+
+  const hideBubble = () => {
     if (bubble) {
-      bubble.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none');
-      bubble.classList.add('opacity-100', 'translate-y-0');
+      bubble.classList.remove('opacity-100', 'translate-x-0');
+      bubble.classList.add('opacity-0', 'translate-x-2', 'pointer-events-none');
+      setTimeout(() => {
+        bubble.style.display = 'none';
+      }, 300);
     }
-  }, 3000);
+  };
+
+  // Tampilkan bubble hanya sekali setelah 3.5 detik jika belum di-scroll
+  const timer = setTimeout(() => {
+    if (bubble && !bubbleShown) {
+      bubbleShown = true;
+      bubble.classList.remove('opacity-0', 'translate-x-2', 'pointer-events-none');
+      bubble.classList.add('opacity-100', 'translate-x-0');
+    }
+  }, 3500);
+
+  // Otomatis hilangkan bubble saat pengguna mulai scroll halaman
+  window.addEventListener(
+    'scroll',
+    () => {
+      clearTimeout(timer);
+      hideBubble();
+    },
+    { once: true, passive: true }
+  );
 
   // Close bubble button handler
-  document.getElementById('close-wa-bubble')?.addEventListener('click', () => {
-    const bubble = document.getElementById('wa-floating-bubble');
-    if (bubble) {
-      bubble.style.display = 'none';
-    }
+  document.getElementById('close-wa-bubble')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hideBubble();
   });
 
-  // Sembunyikan tombol WA mengambang saat Section Penutup Izah terlihat (agar tidak ada 2 tombol WA bertumpuk)
+  // Sembunyikan seluruh tombol WA mengambang saat Section Penutup Izah terlihat
   const closingSection = document.getElementById('penutup-izah');
   const floatingContainer = document.getElementById('wa-floating-container');
 
@@ -99,7 +120,7 @@ const waUrl = getWhatsAppUrl();
       },
       {
         root: null,
-        threshold: 0.1, // Trigger saat 10% section penutup terlihat
+        threshold: 0.1,
       }
     );
 

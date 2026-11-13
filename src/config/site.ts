@@ -122,7 +122,7 @@ export const siteConfig = {
   closingSection: {
     greetingBubble: 'Halo, aku Izah!',
     title: 'Yuk ngobrol dulu, barangnya biar aku yang urus.',
-    description: 'Punya baju atau fashion yang menumpuk di lemari? Kirimkan saja fotonya lewat WhatsApp, santai tanya-tanya dulu tanpa komitmen.',
+    description: 'Punya baju atau koleksi fashion yang menumpuk di lemari? Kirimkan saja fotonya lewat WhatsApp, santai tanya-tanya dulu tanpa komitmen.',
     buttonText: 'Chat Izah di WhatsApp',
     photoAlt: 'Izah, pemilik Titip Jual Izah',
   } as ClosingSectionConfig,
@@ -248,7 +248,7 @@ export const siteConfig = {
   captionFormatRule: 'Tiap foto wajib dilengkapi caption rapi: detail bahan, LD (Lebar Dada), PJ (Panjang Baju), harga jual, dan kondisi/minus secara jujur tanpa typo harga agar tidak membingungkan pembeli.',
 
   // ==========================================
-  // 6. SYARAT & KETENTUAN (TERIMA BERES & TITIP BIASA)
+  // 6. SYARAT & KETENTUAN (REVISI 7)
   // ==========================================
   termsAndConditions: [
     {
@@ -259,9 +259,11 @@ export const siteConfig = {
         'Sebelum kirim barang, wajib kirim foto satu per satu via WhatsApp untuk dicek model oleh admin (ada beberapa kriteria model yang tidak diterima).',
         'Pakaian wajib dalam kondisi bersih, sudah dicuci, dan tidak berdebu.',
         'Layak pakai dan layak jual. Minus minor (noda samar, sedikit transfer warna) masih bisa diterima. Kerusakan mayor (bolong, noda besar, luntur parah) tidak bisa diproses.',
+        'Status barang branded (tas, jam tangan, dll): status barang (original atau non-original) wajib dijelaskan jujur di caption. Dilarang menyebut barang non-original sebagai original. Detail dan kualitas dibahas lewat WhatsApp sebelum diterima.',
+        'Skincare & makeup: diterima walau segel/plastik sudah dibuka atau tanpa box, selama belum kedaluwarsa dan sisa isi dijelaskan jujur di caption. Tanggal kedaluwarsa / nomor batch wajib terlihat di foto. [KONFIRMASI IZAH: apakah produk sangat personal seperti lipstik/maskara bekas pakai diterima atau tidak].',
         'Jumlah barang: minimal 10 pcs, maksimal 30 pcs per sekali pengiriman.',
         'Ongkos kirim paket ke alamat admin ditanggung oleh penitip.',
-        'Biaya jasa Rp7.000/pcs: DP Rp4.000/pcs dibayar setelah paket diterima admin, dan sisa Rp3.000/pcs dilunasi saat 50% dari total barang terjual.',
+        'Biaya jasa Rp7.000/pcs: DP Rp4.000/pcs dibayar setelah paket diterima admin, dan sisa Rp3.000/pcs dilunasi saat ada barang yang terjual. [KONFIRMASI IZAH: waktu pelunasan sisa].',
         'Harga jual ditentukan oleh penitip sendiri atau bisa mengikuti rekomendasi realistis dari admin.',
       ],
       closingNote: 'Dengan menitipkan barang ke sistem Terima Beres, penitip dianggap telah membaca dan menyetujui seluruh ketentuan di atas.',
@@ -272,6 +274,7 @@ export const siteConfig = {
       terms: [
         'Wajib follow akun TikTok dan Instagram @titipjualizah sebelum mendaftar.',
         'Foto wajib lengkap dengan caption detail (bahan, LD, PJ, harga, kondisi, serta minus secara jujur).',
+        'Status barang (original / non-original) wajib dijelaskan jujur di caption. Dilarang menyebut barang non-original sebagai original.',
         'Barang harus layak pakai dan layak jual (tanpa sobek, bolong, atau luntur parah). Jika terbukti menipu customer, penitip langsung di-blacklist permanen.',
         'Posting foto dilakukan setelah: lunas pembayaran biaya jasa, mengisi format data lengkap, dan foto dinyatakan lolos QC admin.',
         'Biaya dihitung per foto mulai Rp5.000/foto (foto kolase 4–6 baju dalam 1 frame tetap dihitung sebagai 1 foto).',
@@ -310,7 +313,7 @@ export const siteConfig = {
       nama: 'Jam tangan',
       foto: 'jam-tangan.jpg',
       alt: 'Kategori jam tangan wanita di Titip Jual Izah',
-      sub: 'Jam tangan wanita original, lengkap box & kartu',
+      sub: 'Jam tangan wanita (status original / non-ori jujur)',
     },
     {
       slug: 'sepatu-sandal',
@@ -330,8 +333,8 @@ export const siteConfig = {
       slug: 'skincare-makeup',
       nama: 'Skincare & makeup',
       foto: 'skincare-makeup.jpg',
-      alt: 'Kategori skincare dan makeup baru di Titip Jual Izah',
-      sub: 'Wajib 100% Baru & Masih Bersegel Pabrik',
+      alt: 'Kategori skincare dan makeup di Titip Jual Izah',
+      sub: 'Diterima baru / sisa isi jujur & ber-expired jelas',
     },
   ] as CategoryItem[],
 
@@ -401,13 +404,13 @@ export const siteConfig = {
     },
     {
       id: 'barang-6',
-      title: 'Fossil Rose Gold Mesh Watch',
+      title: 'Nnorth Star Gold Mesh Watch',
       category: 'Jam tangan',
-      priceSold: 'Rp 850.000',
-      durationSold: 'Terjual dalam 5 hari',
-      condition: 'Lengkap kotak kaleng & kartu garansi',
-      imagePath: 'barang-6.svg',
-      alt: 'Foto jam tangan Fossil rose gold wanita',
+      priceSold: 'Rp 450.000',
+      durationSold: 'Terjual dalam 3 hari',
+      condition: 'Mulus terawat lengkap bantalan jam',
+      imagePath: 'jam-tangan.jpg',
+      alt: 'Foto jam tangan wanita tali mesh hitam casing gold',
       caption: 'Titipan Kak T dari Depok',
       isPlaceholder: false,
     },
@@ -440,7 +443,7 @@ export const siteConfig = {
   ] as TestimonialItem[],
 
   // ==========================================
-  // 10. FAQ (PERTANYAAN UMUM LENGKAP DENGAN 2 SISTEM)
+  // 10. FAQ (PERTANYAAN UMUM LENGKAP REVISI 7)
   // ==========================================
   faqs: [
     {
@@ -449,7 +452,11 @@ export const siteConfig = {
     },
     {
       question: 'Barang apa saja yang bisa dititip di Titip Jual Izah?',
-      answer: 'Fokus utama kami adalah pakaian/baju wanita (dress, blazer, tunik, kemeja, blouse, knitwear, celana, kulot, rok, dan hijab). Kami juga menerima tas preloved mulus, jam tangan original, sepatu & sandal wanita, serta skincare/makeup yang wajib 100% baru dan masih bersegel resmi pabrik.',
+      answer: 'Fokus utama kami adalah pakaian/baju wanita (dress, blazer, tunik, kemeja, blouse, knitwear, celana, kulot, rok, dan hijab). Kami juga menerima tas preloved, jam tangan, sepatu & sandal wanita, serta skincare/makeup selama kondisinya dijelaskan secara jujur dan belum melewati tanggal kedaluwarsa.',
+    },
+    {
+      question: 'Apakah barang branded non-original bisa dititipkan?',
+      answer: 'Bisa, asalkan status barang (apakah original atau non-original) dijelaskan secara jujur di caption. Dilarang keras menyebut barang non-original sebagai original. Detail dan kualitas barang wajib dikonsultasikan dulu lewat chat WhatsApp sebelum barang diterima.',
     },
     {
       question: 'Barang saya ditolak saat cek model, kenapa ya?',
@@ -457,19 +464,15 @@ export const siteConfig = {
     },
     {
       question: 'Kapan pembayaran sisa biaya jasa untuk sistem Terima Beres?',
-      answer: 'Di sistem Terima Beres, kamu hanya membayar DP sebesar Rp4.000/pcs setelah barangmu sampai dan diverifikasi oleh admin. Sisa biaya Rp3.000/pcs baru dilunasi nanti saat 50% dari total barang yang kamu titipkan sudah laku terjual.',
+      answer: 'Di sistem Terima Beres, kamu hanya membayar DP sebesar Rp4.000/pcs setelah barangmu sampai dan diverifikasi oleh admin. Sisa biaya Rp3.000/pcs baru dilunasi nanti saat barang titipanmu sudah mulai laku terjual [KONFIRMASI IZAH: waktu pelunasan sisa].',
     },
     {
       question: 'Kalau barang saya tidak kunjung laku, bagaimana?',
-      answer: 'Untuk sistem Titip Jual Biasa, postingan tetap tayang sesuai paket. Untuk sistem Terima Beres, admin akan mengevaluasi penyesuaian harga bersama kamu atau membuat konten promo ulang. Jika setelah masa titip yang disepakati barang belum terjual dan ingin ditarik kembali, barang bisa dikirim balik ke alamatmu [KONFIRMASI IZAH: syarat dan opsi retur barang titipan].',
+      answer: 'Untuk sistem Titip Jual Biasa, postingan tetap tayang sesuai paket. Untuk sistem Terima Beres, admin akan mengevaluasi penyesuaian harga bersama kamu atau membuat konten promo ulang. Meskipun belum laku, kamu tetap mendapatkan foto katalog rapi dan data ukuran lengkap yang siap pakai kapan saja. Jika setelah masa titip yang disepakati barang ingin ditarik kembali, barang bisa dikirim balik ke alamatmu [KONFIRMASI IZAH: syarat dan opsi retur barang titipan].',
     },
     {
       question: 'Bagaimana cara bayar biaya jasanya?',
-      answer: 'Metode pembayaran kami mendukung transfer bank (BCA, Mandiri, BRI, BNI), e-wallet (GoPay, OVO, ShopeePay, DANA), dan QRIS. Detail nomor pembayaran resmi akan dikirimkan langsung oleh Kak Izah melalui chat WhatsApp saat kamu mendaftar.',
-    },
-    {
-      question: 'Apakah barang tiruan atau KW bisa dititipkan?',
-      answer: 'Sama sekali TIDAK. Kami hanya menerima 100% barang original. Jika pada sistem Titip Jual Biasa penitip terbukti mengirimkan barang palsu atau menipu pembeli, penitip akan langsung di-blacklist permanen.',
+      answer: 'Metode pembayaran kami mendukung transfer bank, e-wallet, dan QRIS. Detail nomor pembayaran resmi akan dikirimkan langsung oleh Kak Izah melalui chat WhatsApp saat kamu mendaftar.',
     },
   ] as FaqItem[],
 };

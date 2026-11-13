@@ -19,10 +19,11 @@ export default {
           400: '#fb7189',
         },
         rosebrand: {
-          500: '#f43f5e',
-          600: '#e11d48',
-          700: '#be123c',
-          800: '#9f1239',
+          400: '#f472b6',
+          500: '#ec4899',
+          600: '#db2777',    // Pink pekat/rose lembut elegan (bukan merah crimson)
+          700: '#be185d',    // Rose pekat dalam
+          800: '#9d174d',
         },
         warmtext: {
           main: '#292524',    // stone-800
@@ -42,9 +43,9 @@ export default {
         '3xl': '1.75rem',
       },
       boxShadow: {
-        'soft': '0 4px 20px -2px rgba(225, 29, 72, 0.05)',
-        'soft-hover': '0 12px 30px -4px rgba(225, 29, 72, 0.1)',
-        'btn': '0 8px 18px -4px rgba(225, 29, 72, 0.35)',
+        'soft': '0 4px 20px -2px rgba(219, 39, 119, 0.06)',
+        'soft-hover': '0 12px 30px -4px rgba(219, 39, 119, 0.12)',
+        'btn': '0 8px 18px -4px rgba(219, 39, 119, 0.3)',
       }
     },
   },
